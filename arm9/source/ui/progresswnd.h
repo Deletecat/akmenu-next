@@ -10,7 +10,7 @@
 #pragma once
 
 #include "progressbar.h"
-#include "singleton.h"
+#include "../singleton.h"
 #include "ui.h"
 
 namespace akui {

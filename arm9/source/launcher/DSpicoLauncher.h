@@ -8,7 +8,7 @@
 
 #include <nds/ndstypes.h>
 
-#include "DSpico/picoLoader7.h"
+#include <picoLoader7.h>
 #include "../dsrom.h"
 #include "ILauncher.h"
 

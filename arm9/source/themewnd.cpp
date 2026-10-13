@@ -11,7 +11,7 @@
 #include "systemfilenames.h"
 #include "theme.h"
 #include "themewnd.h"
-#include "uisettings.h"
+#include "ui/uisettings.h"
 
 using namespace akui;
 

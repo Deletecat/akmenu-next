@@ -11,10 +11,10 @@
 
 #include <string>
 
-#include "button.h"
-#include "form.h"
-#include "formdesc.h"
-#include "message.h"
+#include "ui/button.h"
+#include "ui/form.h"
+#include "ui/formdesc.h"
+#include "ui/message.h"
 
 class cHelpWnd : public akui::cForm {
   public:

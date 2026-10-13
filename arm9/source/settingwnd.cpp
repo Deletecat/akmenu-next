@@ -10,12 +10,12 @@
 #include "settingwnd.h"
 #include "globalsettings.h"
 #include "language.h"
-#include "msgbox.h"
+#include "ui/msgbox.h"
 #include "systemfilenames.h"
 #include "gdi.h"
-#include "fontfactory.h"
-#include "uisettings.h"
-#include "windowmanager.h"
+#include "font/fontfactory.h"
+#include "ui/uisettings.h"
+#include "ui/windowmanager.h"
 #define TOP_MARGIN 4
 
 using namespace akui;

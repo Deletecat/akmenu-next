@@ -10,7 +10,7 @@
 #pragma once
 
 #include <nds.h>
-#include "../../share/memtool.h"
+#include <memtool.h>
 #include "dbgtool.h"
 #include "gdi.h"
 #include "stringtool.h"

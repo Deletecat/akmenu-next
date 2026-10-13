@@ -8,13 +8,13 @@
 */
 
 #include "mainwnd.h"
-#include "../../share/fifotool.h"
+#include <fifotool.h>
 #include "dbgtool.h"
-#include "msgbox.h"
+#include "ui/msgbox.h"
 #include "systemfilenames.h"
 #include "timer.h"
 #include "timetool.h"
-#include "windowmanager.h"
+#include "ui/windowmanager.h"
 
 #include "datetime.h"
 
@@ -26,13 +26,13 @@
 #include "helpwnd.h"
 #include "inifile.h"
 #include "language.h"
-#include "progresswnd.h"
+#include "ui/progresswnd.h"
 #include "rominfownd.h"
 #include "romlauncher.h"
 #include "pluginmngr.h"
 #include "coverwnd.h"
 #include "irqs.h"
-#include "uisettings.h"
+#include "ui/uisettings.h"
 #include "thememusic.h"
 #include "fsmngr.h"
 #include "themewnd.h"
@@ -41,7 +41,6 @@
 #include <dirent.h>
 #include <fat.h>
 #include <unistd.h>
-#include <sys/iosupport.h>
 
 #include "launcher/HomebrewLauncher.h"
 #include "launcher/DSpicoLauncher.h"

@@ -10,9 +10,9 @@
 #include "gdi.h"
 #include <cstdio>
 #include <cstring>
-#include "../../share/memtool.h"
+#include <memtool.h>
 #include "dbgtool.h"
-#include "fontfactory.h"
+#include "font/fontfactory.h"
 #include "globalsettings.h"
 #include "sprite.h"
 #include "userinput.h"

@@ -10,14 +10,13 @@
 class cFSManager {
 public:
     cFSManager();
-    void init(int argc, char* argv[]);
+    void init();
     bool isFlashcart() const;
     bool isSDInserted() const;
     std::string resolveSystemPath(const char* path) const;
     std::string getFSRoot() const;
 
 private:
-    bool checkSDInserted() const;
     bool _isSDInserted;
     bool _isFlashcart;
     std::string _fsRoot;

@@ -6,6 +6,7 @@
 */
 
 #include <sys/stat.h>
+#include <malloc.h>
 #include <unistd.h>
 #include <cstdio>
 #include <cstring>
@@ -16,7 +17,7 @@
 
 #include <nds/ndstypes.h>
 
-#include "DSpico/picoLoader7.h"
+#include <picoLoader7.h>
 #include "tonccpy.h"
 #include "../cheatwnd.h"
 #include "../dsrom.h"

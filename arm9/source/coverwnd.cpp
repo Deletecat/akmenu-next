@@ -15,7 +15,7 @@
 #include "globalsettings.h"
 #include "irqs.h"
 #include "systemfilenames.h"
-#include "uisettings.h"
+#include "ui/uisettings.h"
 
 namespace {
 

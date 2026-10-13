@@ -20,70 +20,8 @@
 #include "dbgtool.h"
 #include "fsmngr.h"
 
-namespace {
-bool directoryExists(const std::string& path) {
-    struct stat st;
-    return stat(path.c_str(), &st) == 0 && S_ISDIR(st.st_mode);
-}
-
-bool fileExists(const std::string& path) {
-    struct stat st;
-    return stat(path.c_str(), &st) == 0 && S_ISREG(st.st_mode);
-}
-
-bool requiredSystemFilesExist() {
-    return directoryExists(fsManager().resolveSystemPath("/_nds")) &&
-           directoryExists(fsManager().resolveSystemPath("/_nds/akmenunext")) &&
-           fileExists(fsManager().resolveSystemPath("/_nds/akmenunext/launcher.nds"));
-}
-
-void showMissingSystemFilesMessage() {
-    consoleDemoInit();
-    consoleClear();
-    iprintf("AKMenu-Next system files are\n");
-    iprintf("missing or corrupted.\n\n");
-    iprintf("Please reinstall AKMenu-Next and");
-    iprintf("ensure your SD/MicroSD card is\n");
-    iprintf("working correctly.\n\n");
-    iprintf("This is a common symptom of\n");
-    iprintf("counterfeit or failing SD cards.");
-
-    while (true) swiWaitForVBlank();
-}
-
-void showNoValidThemesMessage() {
-    consoleDemoInit();
-    consoleClear();
-    iprintf("AKMenu-Next cannot launch:\n");
-    iprintf("no valid themes are installed.\n\n");
-    iprintf("Add a valid theme to:\n");
-    iprintf("_nds/akmenunext/ui\n\n");
-    iprintf("Then restart AKMenu-Next.\n\n");
-    iprintf("If valid themes are installed,\n");
-    iprintf("the files may be corrupted.\n\n");
-    iprintf("Ensure your SD/MicroSD card is\n");
-    iprintf("working correctly.\n\n");
-    iprintf("This is a common symptom with\n");
-    iprintf("counterfeit or failing SD cards.");
-
-    while (true) swiWaitForVBlank();
-}
-
-bool checkInitIni(const std::string& targetPath, const std::string& initPath) {
-    struct stat stInit;
-    if (stat(initPath.c_str(), &stInit) == 0) {
-        struct stat stTarget;
-        if (stat(targetPath.c_str(), &stTarget) == 0) {
-            remove(initPath.c_str());
-        } else {
-            return rename(initPath.c_str(), targetPath.c_str()) == 0;
-        }
-    }
-    return false;
-}
-}  // namespace
 #include "gdi.h"
-#include "ui.h"
+#include "ui/ui.h"
 
 #include "mainlist.h"
 #include "mainwnd.h"
@@ -101,9 +39,9 @@ bool checkInitIni(const std::string& targetPath, const std::string& initPath) {
 #include "irqs.h"
 
 #include "diskicon.h"
-#include "fontfactory.h"
+#include "font/fontfactory.h"
 #include "language.h"
-#include "progresswnd.h"
+#include "ui/progresswnd.h"
 
 #include "exptools.h"
 #include "romlauncher.h"
@@ -115,13 +53,64 @@ bool checkInitIni(const std::string& targetPath, const std::string& initPath) {
 
 using namespace akui;
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-void __libnds_exit(int rc) {}
-#ifdef __cplusplus
+bool directoryExists(const std::string& path) {
+    struct stat st;
+    return stat(path.c_str(), &st) == 0 && S_ISDIR(st.st_mode);
 }
-#endif
+
+bool fileExists(const std::string& path) {
+    struct stat st;
+    return stat(path.c_str(), &st) == 0 && S_ISREG(st.st_mode);
+}
+
+bool requiredSystemFilesExist() {
+    return fileExists(fsManager().resolveSystemPath("/_nds/akmenunext/launcher.nds"));
+}
+
+void showMissingSystemFilesMessage() {
+    consoleDemoInit();
+    consoleClear();
+    printf("AKMenu-Next system files are\n");
+    printf("missing or corrupted.\n\n");
+    printf("Please reinstall AKMenu-Next and");
+    printf("ensure your SD/MicroSD card is\n");
+    printf("working correctly.\n\n");
+    printf("This is a common symptom of\n");
+    printf("counterfeit or failing SD cards.");
+
+    while (true) swiWaitForVBlank();
+}
+
+void showNoValidThemesMessage() {
+    consoleDemoInit();
+    consoleClear();
+    printf("AKMenu-Next cannot launch:\n");
+    printf("no valid themes are installed.\n\n");
+    printf("Add a valid theme to:\n");
+    printf("_nds/akmenunext/ui\n\n");
+    printf("Then restart AKMenu-Next.\n\n");
+    printf("If valid themes are installed,\n");
+    printf("the files may be corrupted.\n\n");
+    printf("Ensure your SD/MicroSD card is\n");
+    printf("working correctly.\n\n");
+    printf("This is a common symptom with\n");
+    printf("counterfeit or failing SD cards.");
+
+    while (true) swiWaitForVBlank();
+}
+
+bool checkInitIni(const std::string& targetPath, const std::string& initPath) {
+    struct stat stInit;
+    if (stat(initPath.c_str(), &stInit) == 0) {
+        struct stat stTarget;
+        if (stat(targetPath.c_str(), &stTarget) == 0) {
+            remove(initPath.c_str());
+        } else {
+            return rename(initPath.c_str(), targetPath.c_str()) == 0;
+        }
+    }
+    return false;
+}
 
 int main(int argc, char* argv[]) {
     irq().init();
@@ -138,11 +127,14 @@ int main(int argc, char* argv[]) {
     initInput();
 
     // turn led on
-    ledBlink(PM_LED_ON);
+    ledBlink(LED_ALWAYS_ON);
 
-    // wait_press_b();
-    //  init fat
-    fsManager().init(argc, argv);
+    if(!fatInitDefault()){
+        consoleDemoInit();
+        printf("Fat Init Fail");
+        while (true) swiWaitForVBlank();
+    }
+    fsManager().init();
 
     if (!requiredSystemFilesExist()) showMissingSystemFilesMessage();
 

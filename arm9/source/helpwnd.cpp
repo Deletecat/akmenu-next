@@ -9,11 +9,11 @@
 
 #include "helpwnd.h"
 
-#include "fontfactory.h"
+#include "font/fontfactory.h"
 #include "language.h"
-#include "msgbox.h"
-#include "uisettings.h"
-#include "windowmanager.h"
+#include "ui/msgbox.h"
+#include "ui/uisettings.h"
+#include "ui/windowmanager.h"
 
 using namespace akui;
 
