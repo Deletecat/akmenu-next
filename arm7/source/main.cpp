@@ -12,7 +12,6 @@
 #include <fifotool.h>
 #include <memtool.h>
 #include <picoLoader7.h>
-#include "my_i2c.h"
 
 void VblankHandler(void) {
     inputGetAndSend();
@@ -117,11 +116,11 @@ static u8 check3DS(void) {
         return 0;
     }
 
-    u8 byteBak = my_i2cReadRegister(0x4A, 0x71);
-    my_i2cWriteRegister(0x4A, 0x71, 0xD2);
-    u8 byteNew = my_i2cReadRegister(0x4A, 0x71);
+    u8 byteBak = i2cReadRegister(0x4A, 0x71);
+    i2cWriteRegister(0x4A, 0x71, 0xD2);
+    u8 byteNew = i2cReadRegister(0x4A, 0x71);
     u8 is3DS = (byteNew != 0xD2) ? 1 : 0;
-    my_i2cWriteRegister(0x4A, 0x71, byteBak);
+    i2cWriteRegister(0x4A, 0x71, byteBak);
 
     return is3DS;
 }
