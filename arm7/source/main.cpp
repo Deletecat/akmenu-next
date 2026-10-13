@@ -53,11 +53,6 @@ static void resetDSPico() {
 }
 
 static void prepareReset() {
-    // enable sound
-    if (2 == getSystem())
-        writePowerManagement(PM_CONTROL_REG,
-                             (readPowerManagement(PM_CONTROL_REG) & ~PM_SOUND_MUTE) | PM_SOUND_AMP);
-
     // disble rtc irq, on some games enabled rtc irq caused tearing.
     uint8 command[2];
     command[0] = WRITE_STATUS_REG2;
