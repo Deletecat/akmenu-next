@@ -11,7 +11,7 @@
 
 #include <nds.h>
 #include "gdi.h"
-#include "singleton.h"
+#include "../singleton.h"
 
 class cUISettings {
   public:

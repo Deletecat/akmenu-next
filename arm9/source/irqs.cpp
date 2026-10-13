@@ -19,8 +19,8 @@
 #include "timer.h"
 #include "userinput.h"
 #include "userwnd.h"
-#include "uisettings.h"
-#include "windowmanager.h"
+#include "ui/uisettings.h"
+#include "ui/windowmanager.h"
 
 using namespace akui;
 

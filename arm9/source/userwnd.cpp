@@ -11,13 +11,13 @@
 #include <sys/stat.h>
 #include <cstdio>
 #include <cstring>
-#include "../../share/memtool.h"
+#include <memtool.h>
 #include "globalsettings.h"
 #include "inifile.h"
 #include "stringtool.h"
 #include "systemfilenames.h"
 #include "unicode.h"
-#include "windowmanager.h"
+#include "ui/windowmanager.h"
 
 using namespace akui;
 
@@ -78,6 +78,7 @@ cUserWindow::cUserWindow() : cWindow(NULL, "UserWindow") {
 
 void cUserWindow::init() {
     CIniFile ini(SFN_USER_CUSTOM);
+    s16 username[10] = {};
     std::string pictureFilename = ini.GetString("custom picture", "file", "");
     if (pictureFilename != "") {
         struct stat st;
@@ -111,7 +112,8 @@ void cUserWindow::init() {
     if (_dateFont) _dateNumbers = createBMP15FromFile(SFN_DATE_NUMBERS);
     _showCustomText = ini.GetInt("custom text", "show", 0);
     _showCustomPic = ini.GetInt("custom picture", "show", 0);
-    _userName = unicode_to_local_string((u16*)PersonalData->name, PersonalData->nameLen, NULL);
+    memcpy(username, PersonalData->name, sizeof(username));
+    _userName = unicode_to_local_string((u16*)username, PersonalData->nameLen, NULL);
 }
 
 void cUserWindow::drawDateNumber(int x, u8 number) {

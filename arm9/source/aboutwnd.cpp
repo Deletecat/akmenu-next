@@ -9,13 +9,13 @@
 
 #include "aboutwnd.h"
 #include "fsmngr.h"
-#include "fontfactory.h"
-#include "launcher/DSpico/picoLoader7.h"
+#include "font/fontfactory.h"
+#include <picoLoader7.h>
 #include "language.h"
-#include "msgbox.h"
-#include "uisettings.h"
+#include "ui/msgbox.h"
+#include "ui/uisettings.h"
 #include "version.h"
-#include "windowmanager.h"
+#include "ui/windowmanager.h"
 
 #include <cstddef>
 #include <cstdio>

@@ -15,7 +15,7 @@
 #include "language.h"
 #include "languagewnd.h"
 #include "systemfilenames.h"
-#include "uisettings.h"
+#include "ui/uisettings.h"
 
 using namespace akui;
 

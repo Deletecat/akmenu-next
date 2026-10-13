@@ -12,8 +12,9 @@
 #include "mainlist.h"
 #include <fat.h>
 #include <sys/dir.h>
+#include <sys/stat.h>
 #include <time.h>
-#include "../../share/memtool.h"
+#include <memtool.h>
 #include "dbgtool.h"
 #include "favourites_banner_bin.h"
 #include "folder_banner_bin.h"
@@ -24,20 +25,19 @@
 #include "microsd_banner_bin.h"
 #include "nand_banner_bin.h"
 #include "nds_save_banner_bin.h"
-#include "progresswnd.h"
+#include "ui/progresswnd.h"
 #include "recents_banner_bin.h"
 #include "startmenu.h"
 #include "systemfilenames.h"
 #include "timetool.h"
 #include "unicode.h"
 #include "unknown_banner_bin.h"
-#include "windowmanager.h"
 #include "fsmngr.h"
+#include "ui/windowmanager.h"
 #include "pluginmngr.h"
 
 using namespace akui;
 
-namespace {
 bool loadBannerFromBin(DSRomInfo& rominfo, const std::string& path) {
     FILE* f = fopen(path.c_str(), "rb");
     if (!f) {
@@ -73,7 +73,6 @@ std::string gameTitleFor(const std::string& filename) {
     if (!hasBanner) return "";
     return unicode_to_local_string(rominfo.banner().titles[gs().language], 128, NULL);
 }
-}  // namespace
 
 cMainList::cMainList(s32 x, s32 y, u32 w, u32 h, cWindow* parent, const std::string& text)
     : cListView(x, y, w, h, parent, text),
@@ -156,19 +155,6 @@ int cMainList::init() {
 
     return 1;
 }
-
-// Don't think this is used anymore?
-/*static bool itemSortComp(const cListView::itemVector& item1, const cListView::itemVector& item2) {
-    const std::string& fn1 = item1[cMainList::SHOWNAME_COLUMN].text();
-    const std::string& fn2 = item2[cMainList::SHOWNAME_COLUMN].text();
-    if ("../" == fn1) return true;
-    if ("../" == fn2) return false;
-    if ('/' == fn1[fn1.size() - 1] && '/' == fn2[fn2.size() - 1]) return fn1 < fn2;
-    if ('/' == fn1[fn1.size() - 1]) return true;
-    if ('/' == fn2[fn2.size() - 1]) return false;
-
-    return fn1 < fn2;
-}*/
 
 static bool extnameFilter(const std::vector<std::string>& extNames, std::string extName) {
     if (0 == extNames.size()) return true;

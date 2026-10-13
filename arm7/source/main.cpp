@@ -9,19 +9,10 @@
 #include <nds.h>
 #include <maxmod7.h>
 #include <string.h>
-#include "../../share/fifotool.h"
-#include "../../share/memtool.h"
-#include "picoLoader7.h"
+#include <fifotool.h>
+#include <memtool.h>
+#include <picoLoader7.h>
 #include "my_i2c.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-extern void swiSwitchToGBAModeFixed(); // This is broken in libnds since 2008. Not fixed until libnds2 which this project isn't using yet.
-void __libnds_exit(int rc) {}
-#ifdef __cplusplus
-}
-#endif
 
 void VblankHandler(void) {
     inputGetAndSend();
@@ -145,7 +136,7 @@ static void menuValue32Handler(u32 value, void* data) {
                 ii = (1 * PM_BACKLIGHT_TOP) | PM_SOUND_AMP;
             writePowerManagement(PM_CONTROL_REG, ii);
             swiChangeSoundBias(0, 0x400);
-            swiSwitchToGBAModeFixed();
+            swiSwitchToGBAMode();
         } break;
         case MENU_MSG_ARM7_REBOOT:
             prepareReset();
@@ -206,7 +197,7 @@ int main() {
 	touchInit();
 
     // Start the RTC tracking IRQ
-    initClockIRQ();
+    initClockIRQTimer(LIBNDS_DEFAULT_TIMER_RTC);
 
     fifoSetValue32Handler(FIFO_USER_01, menuValue32Handler, 0);
 
@@ -231,10 +222,9 @@ int main() {
             fifoSendValue32(FIFO_USER_01, 1);
         }
         if (*(u32*)(0x2FFFD0C) == 0x454D4D43) {
-            sdmmc_get_cid(true, (u32*)0x2FFD7BC);    // Get eMMC CID
+            SDMMC_getCid(true, (u32*)0x2FFD7BC);    // Get eMMC CID
             *(u32*)(0x2FFFD0C) = 0;
         }
-        swiWaitForVBlank();
         if(reset_pico)
             resetDSPico();
         swiWaitForVBlank();

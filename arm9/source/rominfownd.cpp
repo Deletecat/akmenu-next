@@ -9,16 +9,17 @@
 
 #include "rominfownd.h"
 #include <sys/stat.h>
+#include <ctime>
 #include "cheatwnd.h"
 #include "gbaloader.h"
 #include "globalsettings.h"
 #include "language.h"
-#include "msgbox.h"
+#include "ui/msgbox.h"
 #include "systemfilenames.h"
 #include "ui/binaryfind.h"
-#include "uisettings.h"
+#include "ui/uisettings.h"
 #include "unicode.h"
-#include "windowmanager.h"
+#include "ui/windowmanager.h"
 
 using namespace akui;
 

@@ -19,7 +19,7 @@
 #include "irqs.h"
 #include "systemfilenames.h"
 #include "timer.h"
-#include "fifotool.h"
+#include <fifotool.h>
 #include "wavsource.h"
 
 namespace {
