@@ -110,6 +110,7 @@ int main(void) {
     windowManager().update();
     timer().updateFps();
 
+    datetime().updateTime();
     calendarWnd().init();
     calendarWnd().draw();
     calendar().init();
@@ -194,6 +195,7 @@ int main(void) {
 
     while (true) {
         timer().updateFps();
+        datetime().updateTime();
 
         INPUT& inputs = updateInput();
 
