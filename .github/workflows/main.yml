@@ -8,31 +8,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: devkitpro/devkitarm:20241104
-    name: Build with Docker using devkitARM (pre-calico)
-
+    container: skylyrac/blocksds:slim-latest
+    name: Build with Docker using BlocksDS
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
 
       - name: Update packages
         run: |
-          sudo -n sed -i '/bullseye-security/d' /etc/apt/sources.list 2>/dev/null || true
-
-          for f in /etc/apt/sources.list.d/*.list; do
-            [ -e "$f" ] || continue
-            sudo -n sed -i '/bullseye-security/d' "$f"
-          done
-
-          sudo -n apt-get update
-          sudo -n apt-get install -y fakeroot zip p7zip-full
-
-      - name: Silence all git safe directory warnings
-        run: git config --system --add safe.directory '*'
-
-      - name: Set workspace permissions
-        run: chmod 777 -R "$GITHUB_WORKSPACE"
+          apt update
+          apt install -y zip p7zip-full
 
       - name: Build akmenu-next
         run: |
@@ -45,25 +31,25 @@ jobs:
           ./package.sh
 
       - name: Upload akmenu-next-flashcart
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: akmenu-next-flashcart
           path: package/akmenu-next-flashcart.zip
 
       - name: Upload akmenu-next-dsi
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: akmenu-next-dsi
           path: package/akmenu-next-dsi.zip
 
       - name: Upload akmenu-next-3ds
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: akmenu-next-3ds
           path: package/akmenu-next-3ds.zip
 
       - name: Upload akmenu-next-pico
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: akmenu-next-pico
           path: package/akmenu-next-pico.zip
