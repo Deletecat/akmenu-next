@@ -196,6 +196,7 @@ int main(int argc, char* argv[]) {
     windowManager().update();
     timer().updateFps();
 
+    datetime().updateTime();
     calendarWnd().init();
     calendar().init();
     bigClock().init();
@@ -300,6 +301,8 @@ int main(int argc, char* argv[]) {
     while (true) {
         timer().updateFps();
         themeMusic().update();
+
+        datetime().updateTime();
 
         INPUT& inputs = updateInput();
 

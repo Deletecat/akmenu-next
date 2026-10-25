@@ -21,38 +21,45 @@ void cDateTime::FillTimeParts(void) {
     }
 }
 
+void cDateTime::updateTime(void) {
+    if(_updateTime) {
+        FillTimeParts();
+        _updateTime = false;
+    }
+}
+
 u16 cDateTime::year() {
-    FillTimeParts();
+    _updateTime = true;
     return iTimeParts.tm_year + 1900;
 }
 
 u8 cDateTime::month() {
-    FillTimeParts();
+    _updateTime = true;
     return iTimeParts.tm_mon + 1;
 }
 
 u8 cDateTime::day() {
-    FillTimeParts();
+    _updateTime = true;
     return iTimeParts.tm_mday;
 }
 
 u8 cDateTime::weekday() {
-    FillTimeParts();
+    _updateTime = true;
     return iTimeParts.tm_wday;
 }
 
 u8 cDateTime::hours() {
-    FillTimeParts();
+    _updateTime = true;
     return iTimeParts.tm_hour;
 }
 
 u8 cDateTime::minutes() {
-    FillTimeParts();
+    _updateTime = true;
     return iTimeParts.tm_min;
 }
 
 u8 cDateTime::seconds() {
-    FillTimeParts();
+    _updateTime = true;
     return iTimeParts.tm_sec;
 }
 

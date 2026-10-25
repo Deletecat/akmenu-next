@@ -17,6 +17,7 @@
 class cDateTime {
   private:
     tm iTimeParts;
+    bool _updateTime;
 
   private:
     void FillTimeParts(void);
@@ -35,6 +36,8 @@ class cDateTime {
     u8 hours(void);
     u8 minutes(void);
     u8 seconds(void);
+
+    void updateTime(void);
 
     std::string getDateString(void);
     std::string getTimeString(void);
