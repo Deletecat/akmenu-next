@@ -25,7 +25,7 @@ DEFINES		:= -D_NO_BOOTSTUB_
 # Libraries
 # ---------
 
-LIBS		:= -lnds9d -lmm9
+LIBS		:= -lnds9 -lmm9
 LIBDIRS		:= $(BLOCKSDS)/libs/libnds $(BLOCKSDS)/libs/maxmod
 
 # Build artifacts

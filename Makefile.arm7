@@ -23,9 +23,8 @@ DEFINES		:=
 # Libraries
 # ---------
 
-LIBS		:= -lnds7d -ldswifi7 -lmm7
+LIBS		:= -lnds7 -lmm7
 LIBDIRS		:= $(BLOCKSDS)/libs/libnds \
-		   $(BLOCKSDS)/libs/dswifi \
 		   $(BLOCKSDS)/libs/maxmod
 
 # Build artifacts
