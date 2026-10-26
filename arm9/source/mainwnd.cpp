@@ -34,7 +34,6 @@
 #include "irqs.h"
 #include "ui/uisettings.h"
 #include "thememusic.h"
-#include "fsmngr.h"
 #include "themewnd.h"
 #include "languagewnd.h"
 
@@ -54,7 +53,7 @@ using namespace akui;
 
 namespace {
 bool canUsePluginHbBootstrap() {
-    return isDSiMode() && !fsManager().isFlashcart();
+    return isDSiMode() && gs().fsRoot == "sd:";
 }
 
 bool launchPluginFile(const cPluginManager::PluginAssociation& plugin, const std::string& selectedPath) {
@@ -660,7 +659,7 @@ void cMainWnd::setParam(void) {
     size_t ndsPhatColorItem = (size_t)-1;
     size_t ndsHomebrewLoaderItem = (size_t)-1;
 
-    if (fsManager().isFlashcart()) {
+    if (gs().fsRoot == "fat:") {
         _values.clear();
         _values.push_back("nds-bootstrap");
         _values.push_back("Pico-Loader");
@@ -807,7 +806,7 @@ void cMainWnd::setParam(void) {
     gs().languageOverride =
             settingWnd.getItemSelection(TAB_NDS_BOOTSTRAP, ndsLanguageOverrideItem);
 
-    if (fsManager().isFlashcart()) {
+    if (gs().fsRoot == "fat:") {
         gs().pico = settingWnd.getItemSelection(TAB_NDS_BOOTSTRAP, ndsLoaderItem);
     }
     if (isDSiMode()) {
@@ -886,8 +885,7 @@ void cMainWnd::showThemes(void) {
         gs().uiName = selectedTheme;
         gs().saveSettings();
 
-        const std::string launcherPath =
-                fsManager().resolveSystemPath("/_nds/akmenunext/launcher.nds");
+        const std::string launcherPath = gs().fsRoot + "/_nds/akmenunext/launcher.nds";
         themeMusic().stop();
         if (!HomebrewLauncher().launchRom(launcherPath, "", 0, 0, 0, 0)) themeMusic().start();
     }
@@ -923,8 +921,7 @@ void cMainWnd::chooseLanguage(bool skipRestartConfirmation) {
     gs().saveSettings();
     if (_languageSettingButton) _languageSettingButton->setText(gs().langDirectory);
 
-    const std::string launcherPath =
-            fsManager().resolveSystemPath("/_nds/akmenunext/launcher.nds");
+    const std::string launcherPath = gs().fsRoot + "/_nds/akmenunext/launcher.nds";
     themeMusic().stop();
     if (!HomebrewLauncher().launchRom(launcherPath, "", 0, 0, 0, 0)) themeMusic().start();
 }

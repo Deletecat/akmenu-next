@@ -12,6 +12,7 @@
 #include <string>
 #include <vector>
 #include <fat.h>
+#include <nds/arm9/dldi.h>
 
 #include <nds/ndstypes.h>
 
@@ -27,7 +28,6 @@
 #include "ILauncher.h"
 #include "NdsBootstrapLauncher.h"
 #include "nds_loader_arm9.h"
-#include "fsmngr.h"
 
 #include "slot2/io_g6_common.h"
 #include "slot2/io_m3_common.h"
@@ -69,7 +69,7 @@ bool NdsBootstrapLauncher::prepareCheats() {
     u32 gameCode, crc32;
 
     if (cCheat::romData(mRomPath, gameCode, crc32)) {
-        FILE* cheatDb = fopen((SFN_CHEATS).c_str(), "rb");
+        FILE* cheatDb = fopen(SFN_CHEATS, "rb");
         if (!cheatDb) goto cheat_failed;
         long cheatOffset;
         size_t cheatSize;
@@ -121,11 +121,11 @@ bool NdsBootstrapLauncher::prepareIni(bool hb, const std::string& homebrewArg) {
 
     ini.SetString("NDS-BOOTSTRAP", "SAV_PATH", mSavePath);
 
-    ini.SetString("NDS-BOOTSTRAP", "QUIT_PATH", fsManager().resolveSystemPath("/_nds/akmenunext/launcher.nds"));
+    ini.SetString("NDS-BOOTSTRAP", "QUIT_PATH", gs().fsRoot + "/_nds/akmenunext/launcher.nds");
 
     ini.SetString("NDS-BOOTSTRAP", "CONSOLE_MODEL", is3DS() ? "2" : "0");
 
-    std::string custIniPath = fsManager().resolveSystemPath("/_nds/akmenunext/ndsbs.ini");
+    std::string custIniPath = "/_nds/akmenunext/ndsbs.ini";
 
     if(access(custIniPath.c_str(), F_OK) != 0){
             akui::messageBox(NULL, LANG("nds bootstrap", "inimissingtitle"), LANG("nds bootstrap", "inimissing"), MB_OK);
@@ -264,9 +264,10 @@ bool NdsBootstrapLauncher::is3DS(void) {
 
 bool launchHbStrap(const std::string& argPath){
     progressWnd().setPercent(100);
-    std::string ndsHbBootstrapPath = fsManager().resolveSystemPath("/_nds/nds-bootstrap-hb-release.nds");
+    // nds-bs-hb is only ever run from the DSi/3DS SD card
+    const char ndsHbBootstrapPath[] = "sd:/_nds/nds-bootstrap-hb-release.nds";
     std::vector<const char*> argv;
-    argv.push_back(ndsHbBootstrapPath.c_str());
+    argv.push_back(ndsHbBootstrapPath);
     if (!argPath.empty()) {
         argv.push_back(argPath.c_str());
     }
@@ -291,10 +292,10 @@ bool NdsBootstrapLauncher::launchPlugin(std::string romPath, const std::string& 
 bool NdsBootstrapLauncher::launchRomInternal(std::string romPath, std::string savePath, u32 flags,
                                              u32 cheatOffset, u32 cheatSize, bool hb,
                                              const std::string& homebrewArg) {
-    std::string ndsBootstrapPath = fsManager().resolveSystemPath("/_nds/nds-bootstrap-release.nds");
-    std::string ndsBootstrapPathNightly = fsManager().resolveSystemPath("/_nds/nds-bootstrap-nightly.nds");
-    std::string ndsHbBootstrapPath = fsManager().resolveSystemPath("/_nds/nds-bootstrap-hb-release.nds");
-    std::string ndsBootstrapCheck = fsManager().resolveSystemPath("/_nds/pagefile.sys");
+    const std::string ndsBootstrapPath = gs().fsRoot + "/_nds/nds-bootstrap-release.nds";
+    const std::string ndsBootstrapPathNightly = gs().fsRoot + "/_nds/nds-bootstrap-nightly.nds";
+    const std::string ndsHbBootstrapPath = gs().fsRoot + "/_nds/nds-bootstrap-hb-release.nds";
+    const std::string ndsBootstrapCheck = gs().fsRoot + "/_nds/pagefile.sys";
     bool useNightly = false;
     bool hbStrap = hb;
 

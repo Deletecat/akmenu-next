@@ -32,7 +32,6 @@
 #include "timetool.h"
 #include "unicode.h"
 #include "unknown_banner_bin.h"
-#include "fsmngr.h"
 #include "ui/windowmanager.h"
 #include "pluginmngr.h"
 
@@ -100,8 +99,8 @@ cMainList::cMainList(s32 x, s32 y, u32 w, u32 h, cWindow* parent, const std::str
         _topuDSiSD = 4;
         _topSlot1 = 5;
     } else {
-        if (fsManager().isFlashcart()) {
-            if (fsManager().isSDInserted()) {
+        if (gs().fsRoot == "fat:") {
+            if (access("sd:/", F_OK) == 0) {
                 _topCount = 5;
                 _topuSD = 0;
                 _topuDSiSD = 1;
@@ -240,7 +239,7 @@ bool cMainList::enterDir(const std::string& dirName) {
         dir = opendir(dirName.c_str());
 
         if (dir == NULL) {
-            if (fsManager().getFSRoot() == dirName) {
+            if ("fat:/" == dirName || "sd:/" == dirName) {
                 std::string title = LANG("sd card error", "title");
                 std::string sdError = LANG("sd card error", "text");
                 messageBox(NULL, title, sdError, MB_OK);
@@ -515,11 +514,12 @@ void cMainList::onScrolled(u32 index) {
 void cMainList::backParentDir() {
     if ("..." == _currentDir) return;
 
-    bool fat1 = (fsManager().getFSRoot() == _currentDir), favorites = ("favorites:/" == _currentDir), recent = ("recent:/" == _currentDir);
-    if ("fat:/" == _currentDir || "sd:/" == _currentDir || fat1 || favorites || recent ||
+    bool fat1 = ("fat:/" == _currentDir), fat2 = ("sd:/" == _currentDir), favorites = ("favorites:/" == _currentDir), recent = ("recent:/" == _currentDir);
+    if ("fat:/" == _currentDir || "sd:/" == _currentDir || fat1 || fat2 || favorites || recent ||
         "/" == _currentDir) {
         enterDir("...");
         if (fat1) selectRow(_topuSD);
+        if (fat2) selectRow(_topuDSiSD);
         if (favorites) selectRow(_topFavorites);
         if (recent) selectRow(_topRecent);
         return;

@@ -110,7 +110,7 @@ std::string findReplacementTheme(const std::string& currentTheme) {
     const std::string defaultTheme = "blue skies";
     if (!sameTheme(currentTheme, defaultTheme) && isValidTheme(defaultTheme)) return defaultTheme;
 
-    DIR* dir = opendir((SFN_UI_DIRECTORY).c_str());
+    DIR* dir = opendir(SFN_UI_DIRECTORY);
     if (!dir) return std::string();
 
     std::vector<std::string> themes;
@@ -131,7 +131,7 @@ std::vector<std::string> installedThemes(bool coverThemes) {
     static std::vector<std::string> standardThemes;
     static std::vector<std::string> gameCoverThemes;
     if (!loaded) {
-        DIR* dir = opendir((SFN_UI_DIRECTORY).c_str());
+        DIR* dir = opendir(SFN_UI_DIRECTORY);
         if (!dir) return std::vector<std::string>();
 
         struct dirent* entry;

@@ -104,7 +104,7 @@ $(ROM_DSI): arm9 arm7
 	$(V)$(BLOCKSDS)/tools/ndstool/ndstool -c $@ \
 		-7 build/arm7.elf -9 build/arm9.elf \
 		-b $(GAME_ICON) "$(GAME_FULL_TITLE)" \
-		-g NEXT 01 "AKMENU" -z 80040407 -u 00030004 -a 00000138 -p 0001 \
+		-g NEXT 01 "AKMENU" \
 		$(NDSTOOL_ARGS)
 
 ifeq ($(OS),Windows_NT)

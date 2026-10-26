@@ -128,7 +128,9 @@ void cGlobalSettings::loadSettings() {
     if (saveSlotOverride < -1 || saveSlotOverride > 3) saveSlotOverride = -1;
 
     struct stat st;
-    if (0 == stat((SFN_CHEATS).c_str(), &st)) cheatDB = true;
+    if (0 == stat(SFN_CHEATS, &st)) cheatDB = true;
+
+    fsRoot = strcmp(fatGetDefaultDrive(), "fat:/") == 0 ? "fat:" : "sd:";
 
     CIniFile iniBacklight(SFN_BACKLIGHT);
     brightness = iniBacklight.GetInt("brightness", "brightness", brightness);

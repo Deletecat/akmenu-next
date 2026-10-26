@@ -312,7 +312,7 @@ void cRomInfoWnd::pressSaveType(void) {
             LANG("save type", "text"), _values,
             cSaveManager::SaveTypeToDisplaySaveType((SAVE_TYPE)_romInfo.saveInfo().saveType));
 
-    if (fsManager().isFlashcart()){
+    if (gs().fsRoot == "fat:"){
         _values.clear();
         _values.push_back("Pico-Loader");
         _values.push_back("nds-bootstrap");
@@ -412,7 +412,7 @@ void cRomInfoWnd::pressSaveType(void) {
     }
 
     u8 loader_choice = 2, nightly_choice = 2, dsmode_choice = 2, boostcpu_choice = 2, cardreaddma_choice = 2;
-    if (fsManager().isFlashcart()) {
+    if (gs().fsRoot == "fat:") {
         loader_choice = settingWnd.getItemSelection(0, 1);
         nightly_choice = settingWnd.getItemSelection(0, 2);
         dsmode_choice = settingWnd.getItemSelection(0, 3);

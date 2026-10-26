@@ -49,7 +49,7 @@ void drawScrollChevron(s16 x, s16 y, bool up, u16 color, GRAPHICS_ENGINE engine)
 
 std::vector<std::string> installedLanguages() {
     std::vector<std::string> languages;
-    DIR* dir = opendir((SFN_LANGUAGE_DIRECTORY).c_str());
+    DIR* dir = opendir(SFN_LANGUAGE_DIRECTORY);
     if (dir) {
         struct dirent* entry;
         while ((entry = readdir(dir)) != NULL) {

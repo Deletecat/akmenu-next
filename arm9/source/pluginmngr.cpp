@@ -7,6 +7,7 @@
 #include "dbgtool.h"
 #include "inifile.h"
 #include "systemfilenames.h"
+#include "globalsettings.h"
 
 namespace {
 std::string fileExtensionFromPath(const std::string& path) {
@@ -37,9 +38,9 @@ void cPluginManager::loadPlugins() {
     _plugins.clear();
     _extensions.clear();
 
-    DIR* dir = opendir(SFN_PLUGINS_DIRECTORY.c_str());
+    DIR* dir = opendir(SFN_PLUGINS_DIRECTORY);
     if (!dir) {
-        dbg_printf("plugin directory missing: %s\n", SFN_PLUGINS_DIRECTORY.c_str());
+        dbg_printf("plugin directory missing: %s\n", SFN_PLUGINS_DIRECTORY);
         return;
     }
 
@@ -137,11 +138,11 @@ std::string cPluginManager::resolveLauncherPath(const std::string& value) {
     }
 
     if (value[0] == '/') {
-        return fsManager().resolveSystemPath(value.c_str());
+        return gs().fsRoot + value;
     }
 
     if (hasPrefix(value, "_nds/")) {
-        return fsManager().getFSRoot() + value;
+        return gs().fsRoot + "/" + value;
     }
 
     return SFN_PLUGINS_DIRECTORY + value;

@@ -18,7 +18,6 @@
 
 #include <sys/stat.h>
 #include "dbgtool.h"
-#include "fsmngr.h"
 
 #include "gdi.h"
 #include "ui/ui.h"
@@ -53,18 +52,13 @@
 
 using namespace akui;
 
-bool directoryExists(const std::string& path) {
-    struct stat st;
-    return stat(path.c_str(), &st) == 0 && S_ISDIR(st.st_mode);
-}
-
 bool fileExists(const std::string& path) {
     struct stat st;
     return stat(path.c_str(), &st) == 0 && S_ISREG(st.st_mode);
 }
 
 bool requiredSystemFilesExist() {
-    return fileExists(fsManager().resolveSystemPath("/_nds/akmenunext/launcher.nds"));
+    return fileExists("/_nds/akmenunext/launcher.nds");
 }
 
 void showMissingSystemFilesMessage() {
@@ -133,8 +127,18 @@ int main(int argc, char* argv[]) {
         consoleDemoInit();
         printf("Fat Init Fail");
         while (true) swiWaitForVBlank();
+    } else if(strcmp(fatGetDefaultDrive(), "nand:/") == 0){
+        if(access("sd:/", F_OK) == 0){
+            chdir("sd:/");
+        } else {
+            consoleDemoInit();
+            printf("AKMenu-Next cannot launch:\n\n");
+            printf("Please insert an SD card with\n");
+            printf("AKMenu-Next system files\n");
+            printf("installed on it.");
+            while (true) swiWaitForVBlank();
+        }
     }
-    fsManager().init();
 
     if (!requiredSystemFilesExist()) showMissingSystemFilesMessage();
 

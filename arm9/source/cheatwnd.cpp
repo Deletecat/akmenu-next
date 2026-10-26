@@ -231,7 +231,7 @@ static void updateDB(u8 value, u32 offset, FILE* db) {
 }
 
 void cCheatWnd::onGenerate(void) {
-    FILE* db = fopen((SFN_CHEATS).c_str(), "r+b");
+    FILE* db = fopen(SFN_CHEATS, "r+b");
     if (db) {
         std::vector<cCheatDatItem>::iterator itr = _data.begin();
         while (itr != _data.end()) {

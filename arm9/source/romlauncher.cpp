@@ -234,7 +234,7 @@ TLaunchResult launchRom(const std::string& aFullPath, DSRomInfo& aRomInfo, bool 
             u32 gameCode, crc32;
 
             if (cCheat::romData(aFullPath, gameCode, crc32)) {
-                FILE* dat = fopen((SFN_CHEATS).c_str(), "rb");
+                FILE* dat = fopen(SFN_CHEATS, "rb");
                 if (dat) {
                     if (cCheat::searchCheatData(dat, gameCode, crc32, cheatOffset, cheatSize)) {
                         flags |= PATCH_CHEATS;

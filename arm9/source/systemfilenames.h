@@ -8,28 +8,27 @@
 */
 
 #pragma once
-#include "fsmngr.h"
 
-#define SFN_SYSTEM_DIR fsManager().resolveSystemPath("_nds/akmenunext/")
-#define SFN_OFFICIAL_SAVELIST SFN_SYSTEM_DIR + "savelist.bin"
-#define SFN_CUSTOM_SAVELIST SFN_SYSTEM_DIR + "gamedata.bin"
-#define SFN_LAST_SAVEINFO SFN_SYSTEM_DIR + "lastsave.ini"
-#define SFN_LAST_GBA_SAVEINFO SFN_SYSTEM_DIR + "lastgba.ini"
-#define SFN_SDCARD_LIST SFN_SYSTEM_DIR + "sdlist.ini"
-#define SFN_GLOBAL_SETTINGS SFN_SYSTEM_DIR + "globalsettings.ini"
-#define SFN_FAVORITES SFN_SYSTEM_DIR + "favorites.ini"
-#define SFN_RECENT SFN_SYSTEM_DIR + "recent.ini"
-#define SFN_BACKLIGHT SFN_SYSTEM_DIR + "backlight.ini"
-#define SFN_PLUGINS_DIRECTORY (SFN_SYSTEM_DIR + "plugins/")
-#define SFN_PLUGIN_ICONS_DIRECTORY (SFN_PLUGINS_DIRECTORY + "icons/")
+#define SFN_SYSTEM_DIR "/_nds/akmenunext/"
+#define SFN_OFFICIAL_SAVELIST SFN_SYSTEM_DIR "savelist.bin"
+#define SFN_CUSTOM_SAVELIST SFN_SYSTEM_DIR "gamedata.bin"
+#define SFN_LAST_SAVEINFO SFN_SYSTEM_DIR "lastsave.ini"
+#define SFN_LAST_GBA_SAVEINFO SFN_SYSTEM_DIR "lastgba.ini"
+#define SFN_SDCARD_LIST SFN_SYSTEM_DIR "sdlist.ini"
+#define SFN_GLOBAL_SETTINGS SFN_SYSTEM_DIR "globalsettings.ini"
+#define SFN_FAVORITES SFN_SYSTEM_DIR "favorites.ini"
+#define SFN_RECENT SFN_SYSTEM_DIR "recent.ini"
+#define SFN_BACKLIGHT SFN_SYSTEM_DIR "backlight.ini"
+#define SFN_PLUGINS_DIRECTORY SFN_SYSTEM_DIR "plugins/"
+#define SFN_PLUGIN_ICONS_DIRECTORY SFN_PLUGINS_DIRECTORY "icons/"
 
 //cover directories
-#define SFN_COVERS_CODE_DIRECTORY fsManager().resolveSystemPath("/_nds/covers_code/")
-#define SFN_COVERS_NAME_DIRECTORY fsManager().resolveSystemPath("/_nds/covers_name/")
-#define SFN_PICO_COVERS_NDS_DIRECTORY fsManager().resolveSystemPath("/_pico/covers/nds/")
-#define SFN_PICO_COVERS_GBA_DIRECTORY fsManager().resolveSystemPath("/_pico/covers/gba/")
+#define SFN_COVERS_CODE_DIRECTORY "/_nds/covers_code/"
+#define SFN_COVERS_NAME_DIRECTORY "/_nds/covers_name/"
+#define SFN_PICO_COVERS_NDS_DIRECTORY "/_pico/covers/nds/"
+#define SFN_PICO_COVERS_GBA_DIRECTORY "/_pico/covers/gba/"
 
-#define SFN_UI_DIRECTORY SFN_SYSTEM_DIR + "ui/"
+#define SFN_UI_DIRECTORY SFN_SYSTEM_DIR "ui/"
 #define SFN_UI_CURRENT_DIRECTORY SFN_UI_DIRECTORY + gs().uiName + "/"
 #define SFN_USER_CUSTOM SFN_UI_DIRECTORY + gs().uiName + "/custom.ini"
 #define SFN_UI_SETTINGS SFN_UI_DIRECTORY + gs().uiName + "/uisettings.ini"
@@ -57,12 +56,12 @@
 #define SFN_GBAFRAME SFN_UI_DIRECTORY + gs().uiName + "/gbaframe.bmp"
 #define SFN_UI_ICONS_DIRECTORY SFN_UI_DIRECTORY + gs().uiName + "/icons/"
 
-#define SFN_LANGUAGE_DIRECTORY SFN_SYSTEM_DIR + "language/"
+#define SFN_LANGUAGE_DIRECTORY SFN_SYSTEM_DIR "language/"
 #define SFN_LANGUAGE_TEXT SFN_LANGUAGE_DIRECTORY + gs().langDirectory + "/language.txt"
 
-#define SFN_FONTS_DIRECTORY SFN_SYSTEM_DIR + "fonts/"
+#define SFN_FONTS_DIRECTORY SFN_SYSTEM_DIR "fonts/"
 #define SFN_DEFAULT_FONT "liberation.pcf"
 
-#define SFN_ICONS_DIRECTORY SFN_SYSTEM_DIR + "icons/"
+#define SFN_ICONS_DIRECTORY SFN_SYSTEM_DIR "icons/"
 
-#define SFN_CHEATS SFN_SYSTEM_DIR + "cheats/usrcheat.dat"
+#define SFN_CHEATS SFN_SYSTEM_DIR "cheats/usrcheat.dat"

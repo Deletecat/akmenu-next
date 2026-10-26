@@ -8,7 +8,6 @@
 */
 
 #include "aboutwnd.h"
-#include "fsmngr.h"
 #include "font/fontfactory.h"
 #include <picoLoader7.h>
 #include "language.h"
@@ -45,8 +44,8 @@ bool fileExists(const std::string& path) {
 }
 
 bool isDSPicoFlashcart() {
-    return fileExists(fsManager().resolveSystemPath("/_pico/picoLoader7.bin")) &&
-           fileExists(fsManager().resolveSystemPath("/_pico/picoLoader9.bin"));
+    return fileExists("/_pico/picoLoader7.bin") &&
+           fileExists("/_pico/picoLoader9.bin");
 }
 
 std::string readVersionFile(const std::string& path) {
@@ -171,25 +170,20 @@ cAboutWnd::cAboutWnd(s32 x, s32 y, u32 w, u32 h, cWindow* parent, const std::str
     const std::string yes = LANG("message box", "yes");
     const std::string no = LANG("message box", "no");
 
-    const std::string ndsBootstrapReleasePath =
-            fsManager().resolveSystemPath("/_nds/nds-bootstrap-release.nds");
-    const std::string ndsBootstrapNightlyPath =
-            fsManager().resolveSystemPath("/_nds/nds-bootstrap-nightly.nds");
-    const std::string ndsBootstrapHbPath =
-            fsManager().resolveSystemPath("/_nds/nds-bootstrap-hb-release.nds");
-    std::string ndsBootstrapVersion =
-            readVersionFile(fsManager().resolveSystemPath("/_nds/release-bootstrap.ver"));
+    const std::string ndsBootstrapReleasePath = "/_nds/nds-bootstrap-release.nds";
+    const std::string ndsBootstrapNightlyPath = "/_nds/nds-bootstrap-nightly.nds";
+    const std::string ndsBootstrapHbPath = "/_nds/nds-bootstrap-hb-release.nds";
+    std::string ndsBootstrapVersion = readVersionFile("/_nds/release-bootstrap.ver");
     if (ndsBootstrapVersion.empty()) {
-        ndsBootstrapVersion =
-                readVersionFile(fsManager().resolveSystemPath("/_nds/nightly-bootstrap.ver"));
+        ndsBootstrapVersion = readVersionFile("/_nds/nightly-bootstrap.ver");
     }
     const bool ndsBootstrapInstalled =
             fileExists(ndsBootstrapReleasePath) || fileExists(ndsBootstrapNightlyPath) ||
             fileExists(ndsBootstrapHbPath) || !ndsBootstrapVersion.empty();
     if (ndsBootstrapVersion.empty()) ndsBootstrapVersion = notAvailable;
 
-    const std::string picoLoader7Path = fsManager().resolveSystemPath("/_pico/picoLoader7.bin");
-    const std::string picoLoader9Path = fsManager().resolveSystemPath("/_pico/picoLoader9.bin");
+    const std::string picoLoader7Path = "/_pico/picoLoader7.bin";
+    const std::string picoLoader9Path = "/_pico/picoLoader9.bin";
     const bool picoLoaderInstalled = fileExists(picoLoader7Path) && fileExists(picoLoader9Path);
     std::string picoLoaderVersion =
             picoLoaderInstalled ? readPicoLoaderApiVersion(picoLoader7Path) : "";
@@ -198,7 +192,7 @@ cAboutWnd::cAboutWnd(s32 x, s32 y, u32 w, u32 h, cWindow* parent, const std::str
     const std::string mode = LANG("about window", isDSiMode() ? "dsi mode" : "ds mode");
     const std::string storage =
             isDSPicoFlashcart() ? LANG("about window", "dspico")
-                                : (fsManager().isFlashcart() ? LANG("about window", "flashcart")
+                                : (gs().fsRoot == "fat:" ? LANG("about window", "flashcart")
                                                              : LANG("about window", "sd card"));
     const std::string akmenuVersion =
             std::string(AKMENU_VERSION_MAIN) + "." + AKMENU_VERSION_SUB;

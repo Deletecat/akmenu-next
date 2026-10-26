@@ -12,6 +12,7 @@
 #include <nds.h>
 #include <string>
 #include <fifotool.h>
+#include <fat.h>
 #include "singleton.h"
 
 class cGlobalSettings {
@@ -50,6 +51,7 @@ class cGlobalSettings {
     std::string langDirectory;
     std::string uiName;
     std::string startupFolder;
+    std::string fsRoot;
     int languageOverride;
     int resetHotKey;
     int scrollSpeed;

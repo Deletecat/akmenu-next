@@ -36,9 +36,7 @@ static u32 getSystem(void) {
 
 typedef void (*pico_loader_7_func_t)(void);
 
-volatile bool reset_pico = false;
 static volatile bool maxmodInstalled = false;
-static volatile bool maxmodInstallRequested = false;
 
 static void resetDSPico() {
     zeroMemory((void*)0x40000B0, 0x30);
@@ -99,13 +97,6 @@ static u8 brightnessGet(void) {
     return data & PM_NDSLITE_BRIGHTNESS_MASK;
 }
 
-static u8 checkSD(void) {
-    //SD_IRQ_STATUS0
-    u32 status = *(volatile u32*)(0x400481C);
-
-    return status & (1u << 5);
-}
-
 static u8 check3DS(void) {
     if (!isDSiMode()) {
         return 0;
@@ -137,7 +128,7 @@ static void menuValue32Handler(u32 value, void* data) {
             swiSoftReset();
             break;
         case MENU_MSG_ARM7_REBOOT_PICOLOADER:
-            reset_pico = true;
+            resetDSPico();
             break;
         case MENU_MSG_BRIGHTNESS_NEXT:
             brightnessNext();
@@ -161,17 +152,15 @@ static void menuValue32Handler(u32 value, void* data) {
             else
                 systemShutDown();
             break;
-        case MENU_MSG_IS_SD_INSERTED:
-            fifoSendValue32(FIFO_USER_01, checkSD());
-            break;
         case MENU_MSG_IS_3DS:
             fifoSendValue32(FIFO_USER_01, check3DS());
             break;
         case MENU_MSG_MAXMOD_INSTALL:
-            if (maxmodInstalled)
-                fifoSendValue32(FIFO_USER_01, 1);
-            else
-                maxmodInstallRequested = true;
+            if (!maxmodInstalled) {
+                mmInstall(FIFO_MAXMOD);
+                maxmodInstalled = true;
+            }
+            fifoSendValue32(FIFO_USER_01, 1);
             break;
         default:
             break;
@@ -179,10 +168,6 @@ static void menuValue32Handler(u32 value, void* data) {
 }
 
 int main() {
-    // switch on backlight on both screens
-    writePowerManagement(PM_CONTROL_REG, readPowerManagement(PM_CONTROL_REG) | PM_BACKLIGHT_BOTTOM |
-                                                 PM_BACKLIGHT_TOP);
-
     // read User Settings from firmware
     readUserSettings();
 
@@ -198,29 +183,18 @@ int main() {
     installSystemFIFO();
 
     irqSet(IRQ_VBLANK, VblankHandler);
-
-    irqEnable(IRQ_VBLANK | IRQ_NETWORK);
+    irqEnable(IRQ_VBLANK);
 
     if (isDSiMode() && REG_SNDEXTCNT != 0) {
-		i2cWriteRegister(0x4A, 0x12, 0x00);	// Press power-button for auto-reset
-		i2cWriteRegister(0x4A, 0x70, 0x01);	// Bootflag = Warmboot/SkipHealthSafety
-	}
+        i2cWriteRegister(0x4A, 0x12, 0x00);	// Press power-button for auto-reset
+        i2cWriteRegister(0x4A, 0x70, 0x01);	// Bootflag = Warmboot/SkipHealthSafety
+    }
        
     while (true) {
-        if (maxmodInstallRequested) {
-            maxmodInstallRequested = false;
-            if (!maxmodInstalled) {
-                mmInstall(FIFO_MAXMOD);
-                maxmodInstalled = true;
-            }
-            fifoSendValue32(FIFO_USER_01, 1);
-        }
         if (*(u32*)(0x2FFFD0C) == 0x454D4D43) {
             SDMMC_getCid(true, (u32*)0x2FFD7BC);    // Get eMMC CID
             *(u32*)(0x2FFFD0C) = 0;
         }
-        if(reset_pico)
-            resetDSPico();
         swiWaitForVBlank();
     }
 }
