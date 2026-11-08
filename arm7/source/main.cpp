@@ -192,7 +192,7 @@ int main() {
        
     while (true) {
         if (*(u32*)(0x2FFFD0C) == 0x454D4D43) {
-            SDMMC_getCid(true, (u32*)0x2FFD7BC);    // Get eMMC CID
+            SDMMC_getCid(SDMMC_DEV_CARD, (u32*)0x2FFD7BC);    // Get eMMC CID
             *(u32*)(0x2FFFD0C) = 0;
         }
         swiWaitForVBlank();
