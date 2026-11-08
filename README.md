@@ -21,8 +21,7 @@ Please check the [AKMenu-Next Docs](https://coderkei.github.io/akmenu-next-docs/
 
 ## Building from source
 
-Requires the pre-calico version of devkitarm to be installed with the `nds-dev` package.
-A docker image is available with this version on [docker hub](https://hub.docker.com/layers/devkitpro/devkitarm/20241104).
+Requires the latest version of BlocksDS to be installed. See the installation guide for more details: <https://blocksds.skylyrac.net/docs/setup/>
 
 Build the repository with `make`, then run `package.cmd/sh` depending on your OS to package the build for Flashcarts, DSi and 3DS.
 

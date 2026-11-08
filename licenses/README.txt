@@ -8,4 +8,6 @@ This provided source integrates ROM list code from the melonDS project, which is
 
 This provided source integrates devkitPro's bootloader, which is licensed under the GPL-2.0-or-later license. See GPL2.txt for more info.
 
+This project makes use of Maxmod, which is licensed under the ISC license. See ISC-Maxmod.txt for more info.
+
 This provided source is collectively licensed under the GPL-3.0-or-later license.
