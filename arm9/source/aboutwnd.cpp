@@ -20,6 +20,7 @@
 #include <cstdio>
 #include <string>
 #include <unistd.h>
+#include <nds/arm9/dldi.h>
 
 using namespace akui;
 
@@ -44,8 +45,7 @@ bool fileExists(const std::string& path) {
 }
 
 bool isDSPicoFlashcart() {
-    return fileExists("/_pico/picoLoader7.bin") &&
-           fileExists("/_pico/picoLoader9.bin");
+    return memcmp(io_dldi_data->friendlyName, "DSpico", 6) == 0;
 }
 
 std::string readVersionFile(const std::string& path) {
