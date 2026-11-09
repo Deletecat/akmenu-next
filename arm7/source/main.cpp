@@ -50,27 +50,6 @@ static void resetDSPico() {
     ((pico_loader_7_func_t)header7->entryPoint)();
 }
 
-static void prepareReset() {
-    // disble rtc irq, on some games enabled rtc irq caused tearing.
-    uint8 command[2];
-    command[0] = WRITE_STATUS_REG2;
-    command[1] = 0x00;
-    rtcTransaction(command, 2, 0, 0);
-
-    REG_POWERCNT |= POWER_SOUND;
-
-    // reset DMA
-    zeroMemory((void*)0x40000B0, 0x30);
-
-    REG_IME = IME_DISABLE;
-    REG_IE = 0;
-    REG_IF = ~0;
-
-    // instruct arm9 to reset
-    *((vu32*)0x02FFFE04) = MENU_MSG_ARM7_READY_BOOT;
-    swiDelay(1);
-}
-
 static void brightnessNext(void) {
     u8 data = readPowerManagement(PM_NDSLITE_ADR);
     if (0 == (data & PM_NDSLITE_ISLITE))  // this is not a DS Lite machine
@@ -123,10 +102,6 @@ static void menuValue32Handler(u32 value, void* data) {
             swiChangeSoundBias(0, 0x400);
             swiSwitchToGBAMode();
         } break;
-        case MENU_MSG_ARM7_REBOOT:
-            prepareReset();
-            swiSoftReset();
-            break;
         case MENU_MSG_ARM7_REBOOT_PICOLOADER:
             resetDSPico();
             break;
@@ -144,13 +119,6 @@ static void menuValue32Handler(u32 value, void* data) {
         case MENU_MSG_BRIGHTNESS_SET2:
         case MENU_MSG_BRIGHTNESS_SET3:
             brightnessSet(value & 3);
-            break;
-        case MENU_MSG_SHUTDOWN:
-            if (2 == getSystem())
-                writePowerManagement(PM_CONTROL2_REG,
-                                     readPowerManagement(PM_CONTROL2_REG) | PM_CONTROL2_RESET);
-            else
-                systemShutDown();
             break;
         case MENU_MSG_IS_3DS:
             fifoSendValue32(FIFO_USER_01, check3DS());
