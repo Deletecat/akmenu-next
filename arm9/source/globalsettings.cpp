@@ -217,11 +217,20 @@ u32 cGlobalSettings::CopyBufferSize(void) {
 }
 
 void cGlobalSettings::nextBrightness(void) {
-    fifoSendValue32(FIFO_USER_01, MENU_MSG_BRIGHTNESS_GET);
-    while (!fifoCheckValue32(FIFO_USER_01))
-        ;
-    u32 currentLevel = fifoGetValue32(FIFO_USER_01);
-    brightness = (currentLevel + 1) & 3;
+    fifoSendValue32(FIFO_USER_01, MENU_MSG_SYSTEM);
+    while(!fifoCheckValue32(FIFO_USER_02));
+    u32 system = fifoGetValue32(FIFO_USER_02);
+
+    brightness++;
+    if (system == 1 && brightness >= 1) {
+        brightness = 0; // DS Phat backlight off
+    } else if (brightness >= 6) {
+        if (system == 2) {
+            brightness = 1; // DSi lowest setting
+        } else {
+            brightness = 2; // DS Lite lowest setting
+        }
+    }
 
     setBrightness(brightness);
     CIniFile ini(SFN_BACKLIGHT);
@@ -230,5 +239,5 @@ void cGlobalSettings::nextBrightness(void) {
 }
 
 void cGlobalSettings::setBrightness(u32 level) {
-    fifoSendValue32(FIFO_USER_01, MENU_MSG_BRIGHTNESS_SET0 + (brightness & 3));
+    systemSetBacklightLevel(level);
 }

@@ -18,11 +18,7 @@ void VblankHandler(void) {
 }
 
 #define PM_NDSLITE_ADR (4)
-#define PM_CONTROL2_REG (16)
-#define PM_CONTROL2_RESET (1)
 #define PM_NDSLITE_ISLITE BIT(6)
-#define PM_NDSLITE_BRIGHTNESS(x) ((x & 0x03) << 0)
-#define PM_NDSLITE_BRIGHTNESS_MASK (PM_NDSLITE_BRIGHTNESS(3))
 
 static u32 getSystem(void) {
     static u32 dsGen = 0;
@@ -48,32 +44,6 @@ static void resetDSPico() {
     auto header7 = (pload_header7_t*)0x06000000;
     // header7->dldiDriver = (void*)0x037F8000;
     ((pico_loader_7_func_t)header7->entryPoint)();
-}
-
-static void brightnessNext(void) {
-    u8 data = readPowerManagement(PM_NDSLITE_ADR);
-    if (0 == (data & PM_NDSLITE_ISLITE))  // this is not a DS Lite machine
-        return;
-    u8 level = data & PM_NDSLITE_BRIGHTNESS_MASK;
-    level++;
-    data &= ~PM_NDSLITE_BRIGHTNESS_MASK;
-    data |= PM_NDSLITE_BRIGHTNESS(level);
-    writePowerManagement(PM_NDSLITE_ADR, data);
-}
-
-static void brightnessSet(u8 level) {
-    u8 data = readPowerManagement(PM_NDSLITE_ADR);
-    if (0 == (data & PM_NDSLITE_ISLITE))  // this is not a DS Lite machine
-        return;
-    data &= ~PM_NDSLITE_BRIGHTNESS_MASK;
-    data |= PM_NDSLITE_BRIGHTNESS(level);
-    writePowerManagement(PM_NDSLITE_ADR, data);
-}
-static u8 brightnessGet(void) {
-    u8 data = readPowerManagement(PM_NDSLITE_ADR);
-    if (0 == (data & PM_NDSLITE_ISLITE))  // this is not a DS Lite machine
-        return 0;
-    return data & PM_NDSLITE_BRIGHTNESS_MASK;
 }
 
 static u8 check3DS(void) {
@@ -105,20 +75,8 @@ static void menuValue32Handler(u32 value, void* data) {
         case MENU_MSG_ARM7_REBOOT_PICOLOADER:
             resetDSPico();
             break;
-        case MENU_MSG_BRIGHTNESS_NEXT:
-            brightnessNext();
-            break;
         case MENU_MSG_SYSTEM:
             fifoSendValue32(FIFO_USER_02, getSystem());
-            break;
-        case MENU_MSG_BRIGHTNESS_GET:
-            fifoSendValue32(FIFO_USER_01, brightnessGet());
-            break;
-        case MENU_MSG_BRIGHTNESS_SET0:
-        case MENU_MSG_BRIGHTNESS_SET1:
-        case MENU_MSG_BRIGHTNESS_SET2:
-        case MENU_MSG_BRIGHTNESS_SET3:
-            brightnessSet(value & 3);
             break;
         case MENU_MSG_IS_3DS:
             fifoSendValue32(FIFO_USER_01, check3DS());
