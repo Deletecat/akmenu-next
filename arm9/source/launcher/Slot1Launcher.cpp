@@ -14,7 +14,7 @@
 
 bool Slot1Launcher::launchRom(std::string romPath, std::string savePath, u32 flags,
                                u32 cheatOffset, u32 cheatSize, bool hb) {
-    const char slot1LoaderPath[] = "/_nds/akmenunext/slot1launch.nds";
+    const char slot1LoaderPath[] = "sd:/_nds/akmenunext/slot1launch.nds";
 
     if (access(slot1LoaderPath, F_OK) != 0) {
         printLoaderNotFound(slot1LoaderPath);
