@@ -39,16 +39,6 @@ struct ThemeMusicCandidate {
 cThemeMusic gThemeMusic;
 cThemeMusic* volatile gActiveThemeMusic = NULL;
 mm_stream gStream;
-bool gMusicRandomSeeded = false;
-
-void seedMusicRandom() {
-    if (gMusicRandomSeeded) return;
-    u64 ticks = timer().getTick();
-    unsigned int seed = (unsigned int)time(NULL) ^ (unsigned int)ticks ^
-                        (unsigned int)(ticks >> 32);
-    srand(seed);
-    gMusicRandomSeeded = true;
-}
 
 mm_word maxmodStreamCallback(mm_word length, mm_addr destination, mm_stream_formats format) {
     if (gActiveThemeMusic) return gActiveThemeMusic->fillStream(length, destination);
@@ -56,10 +46,6 @@ mm_word maxmodStreamCallback(mm_word length, mm_addr destination, mm_stream_form
     if (format & 1) frameBytes *= 2;
     memset(destination, 0, length * frameBytes);
     return length;
-}
-
-void compilerMemoryBarrier() {
-    __asm__ volatile("" ::: "memory");
 }
 
 // Returns `source` if it opens with a playable sample rate; deletes it otherwise.
@@ -115,7 +101,6 @@ bool cThemeMusic::queueBytes(u32 length) {
             return false;
         }
 
-        compilerMemoryBarrier();
         written += segment;
         _writeTotal = written;
         length -= segment;
@@ -145,7 +130,7 @@ bool cThemeMusic::start() {
     }
     if (!candidateCount) return false;
 
-    seedMusicRandom();
+    srand(time(NULL));
     for (u32 i = candidateCount - 1; i > 0; --i) {
         u32 selected = (u32)rand() % (i + 1);
         ThemeMusicCandidate candidate = candidates[i];
@@ -185,15 +170,21 @@ bool cThemeMusic::start() {
         return false;
     }
 
-    bool vblankWasEnabled = (REG_IE & IRQ_VBLANK) != 0;
+    mm_ds_system system = {
+        .mod_count = 0,
+        .samp_count = 0,
+        .mem_bank = 0,
+        .fifo_channel = FIFO_MAXMOD
+    };
 
-    if (vblankWasEnabled) irqDisable(IRQ_VBLANK);
-    mm_ds_system system;
-    system.mod_count = 0;
-    system.samp_count = 0;
-    system.mem_bank = NULL;
-    system.fifo_channel = FIFO_MAXMOD;
-    mmInit(&system);
+    if(!mmInit(&system)){
+        free(_ring);
+        _ring = NULL;
+        delete _source;
+        _source = NULL;
+        dbg_printf("failed to initialise maxmod\n");
+        return false;
+    };
 
     gStream.sampling_rate = _sampleRate;
     gStream.buffer_length = kMaxmodBufferFrames;
@@ -204,10 +195,8 @@ bool cThemeMusic::start() {
 
     gActiveThemeMusic = this;
     _playing = true;
-    compilerMemoryBarrier();
     mmStreamOpen(&gStream);
     _streamOpen = true;
-    if (vblankWasEnabled) irqEnable(IRQ_VBLANK);
     dbg_printf("Theme music started (%lu Hz, %lu-bit %s)\n", (unsigned long)_sampleRate,
                (unsigned long)16, _format == MM_STREAM_16BIT_MONO ? "mono" : "stereo");
     return true;
@@ -215,7 +204,6 @@ bool cThemeMusic::start() {
 
 void cThemeMusic::stop() {
     _playing = false;
-    compilerMemoryBarrier();
     if (_streamOpen) {
         mmStreamClose();
         _streamOpen = false;
@@ -264,7 +252,6 @@ u32 cThemeMusic::fillStream(u32 length, void* destination) {
         read += segment;
     }
 
-    compilerMemoryBarrier();
     _readTotal = read;
     if (copied < requestedBytes) {
         memset(output, 0, requestedBytes - copied);
