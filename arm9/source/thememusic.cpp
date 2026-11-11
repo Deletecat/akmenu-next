@@ -186,28 +186,14 @@ bool cThemeMusic::start() {
     }
 
     bool vblankWasEnabled = (REG_IE & IRQ_VBLANK) != 0;
-    if (!_maxmodInitialized) {
-        fifoSendValue32(FIFO_USER_01, MENU_MSG_MAXMOD_INSTALL);
-        fifoWaitValue32(FIFO_USER_01);
-        if (fifoGetValue32(FIFO_USER_01) != 1) {
-            free(_ring);
-            _ring = NULL;
-            delete _source;
-            _source = NULL;
-            return false;
-        }
 
-        if (vblankWasEnabled) irqDisable(IRQ_VBLANK);
-        mm_ds_system system;
-        system.mod_count = 0;
-        system.samp_count = 0;
-        system.mem_bank = NULL;
-        system.fifo_channel = FIFO_MAXMOD;
-        mmInit(&system);
-        _maxmodInitialized = true;
-    } else if (vblankWasEnabled) {
-        irqDisable(IRQ_VBLANK);
-    }
+    if (vblankWasEnabled) irqDisable(IRQ_VBLANK);
+    mm_ds_system system;
+    system.mod_count = 0;
+    system.samp_count = 0;
+    system.mem_bank = NULL;
+    system.fifo_channel = FIFO_MAXMOD;
+    mmInit(&system);
 
     gStream.sampling_rate = _sampleRate;
     gStream.buffer_length = kMaxmodBufferFrames;

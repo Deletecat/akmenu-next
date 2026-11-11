@@ -32,8 +32,6 @@ static u32 getSystem(void) {
 
 typedef void (*pico_loader_7_func_t)(void);
 
-static volatile bool maxmodInstalled = false;
-
 static void resetDSPico() {
     zeroMemory((void*)0x40000B0, 0x30);
 
@@ -81,13 +79,6 @@ static void menuValue32Handler(u32 value, void* data) {
         case MENU_MSG_IS_3DS:
             fifoSendValue32(FIFO_USER_01, check3DS());
             break;
-        case MENU_MSG_MAXMOD_INSTALL:
-            if (!maxmodInstalled) {
-                mmInstall(FIFO_MAXMOD);
-                maxmodInstalled = true;
-            }
-            fifoSendValue32(FIFO_USER_01, 1);
-            break;
         default:
             break;
     }
@@ -107,6 +98,8 @@ int main() {
     fifoSetValue32Handler(FIFO_USER_01, menuValue32Handler, 0);
 
     installSystemFIFO();
+
+    mmInstall(FIFO_MAXMOD);
 
     irqSet(IRQ_VBLANK, VblankHandler);
     irqEnable(IRQ_VBLANK);
