@@ -222,9 +222,9 @@ void cGlobalSettings::nextBrightness(void) {
     u32 system = fifoGetValue32(FIFO_USER_02);
 
     brightness++;
-    if (system == 1 && brightness >= 1) {
+    if (system == 1 && brightness > 1) {
         brightness = 0; // DS Phat backlight off
-    } else if (brightness >= 6) {
+    } else if (brightness > 5) {
         if (system == 2) {
             brightness = 1; // DSi lowest setting
         } else {
