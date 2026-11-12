@@ -5,10 +5,10 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "recent.h"
+#include <recent.h>
 #include <vector>
-#include "inifile.h"
-#include "systemfilenames.h"
+#include <inifile.h>
+#include <systemfilenames.h>
 
 bool cRecent::AddToRecent(const std::string& aFileName) {
     if (aFileName.empty()) return false;

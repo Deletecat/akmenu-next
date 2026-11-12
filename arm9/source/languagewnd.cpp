@@ -11,11 +11,11 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-#include "gdi.h"
-#include "language.h"
-#include "languagewnd.h"
-#include "systemfilenames.h"
-#include "ui/uisettings.h"
+#include <gdi.h>
+#include <language.h>
+#include <languagewnd.h>
+#include <systemfilenames.h>
+#include <ui/uisettings.h>
 
 using namespace akui;
 

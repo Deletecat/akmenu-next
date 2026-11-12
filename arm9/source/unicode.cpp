@@ -7,7 +7,7 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "unicode.h"
+#include <unicode.h>
 
 std::string unicode_to_local_string(const u16* unicode_string, size_t length, bool* defCharUsed) {
     if (defCharUsed) *defCharUsed = false;

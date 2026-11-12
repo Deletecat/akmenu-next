@@ -7,47 +7,47 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "mainwnd.h"
+#include <mainwnd.h>
 #include <fifotool.h>
-#include "dbgtool.h"
-#include "ui/msgbox.h"
-#include "systemfilenames.h"
-#include "timer.h"
-#include "timetool.h"
-#include "ui/windowmanager.h"
+#include <dbgtool.h>
+#include <ui/msgbox.h>
+#include <systemfilenames.h>
+#include <timer.h>
+#include <timetool.h>
+#include <ui/windowmanager.h>
 
-#include "datetime.h"
+#include <datetime.h>
 
-#include "expwnd.h"
-#include "exptools.h"
-#include "favorites.h"
-#include "gbaloader.h"
-#include "aboutwnd.h"
-#include "helpwnd.h"
-#include "inifile.h"
-#include "language.h"
-#include "ui/progresswnd.h"
-#include "rominfownd.h"
-#include "romlauncher.h"
-#include "pluginmngr.h"
-#include "coverwnd.h"
-#include "irqs.h"
-#include "ui/uisettings.h"
-#include "thememusic.h"
-#include "themewnd.h"
-#include "languagewnd.h"
+#include <expwnd.h>
+#include <exptools.h>
+#include <favorites.h>
+#include <gbaloader.h>
+#include <aboutwnd.h>
+#include <helpwnd.h>
+#include <inifile.h>
+#include <language.h>
+#include <ui/progresswnd.h>
+#include <rominfownd.h>
+#include <romlauncher.h>
+#include <pluginmngr.h>
+#include <coverwnd.h>
+#include <irqs.h>
+#include <ui/uisettings.h>
+#include <thememusic.h>
+#include <themewnd.h>
+#include <languagewnd.h>
 
 #include <dirent.h>
 #include <fat.h>
 #include <unistd.h>
 
-#include "launcher/HomebrewLauncher.h"
-#include "launcher/DSpicoLauncher.h"
-#include "launcher/NdsBootstrapLauncher.h"
-#include "launcher/PassMeLauncher.h"
-#include "launcher/Slot1Launcher.h"
-#include "launcher/nds_loader_arm9.h"
-#include "launcher/ILauncher.h"
+#include <launcher/HomebrewLauncher.h>
+#include <launcher/DSpicoLauncher.h>
+#include <launcher/NdsBootstrapLauncher.h>
+#include <launcher/PassMeLauncher.h>
+#include <launcher/Slot1Launcher.h>
+#include <launcher/nds_loader_arm9.h>
+#include <launcher/ILauncher.h>
 
 using namespace akui;
 

@@ -7,10 +7,10 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "form.h"
-#include "timer.h"
-#include "ui.h"
-#include "thememusic.h"
+#include <ui/form.h>
+#include <timer.h>
+#include <ui/ui.h>
+#include <thememusic.h>
 //#include "dbgtool.h"
 //#include "windowmanager.h"
 

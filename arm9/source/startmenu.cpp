@@ -7,12 +7,12 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "startmenu.h"
-#include "inifile.h"
-#include "language.h"
-#include "mainlist.h"
-#include "systemfilenames.h"
-#include "ui/windowmanager.h"
+#include <startmenu.h>
+#include <inifile.h>
+#include <language.h>
+#include <mainlist.h>
+#include <systemfilenames.h>
+#include <ui/windowmanager.h>
 
 using namespace akui;
 

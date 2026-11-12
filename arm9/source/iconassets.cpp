@@ -5,11 +5,11 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "iconassets.h"
+#include <iconassets.h>
 
 #include <stdio.h>
-#include "globalsettings.h"
-#include "systemfilenames.h"
+#include <globalsettings.h>
+#include <systemfilenames.h>
 
 namespace {
 bool loadIconAssetFromPath(const std::string& path, void* destination, size_t size) {

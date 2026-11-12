@@ -7,7 +7,7 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "sprite.h"
+#include <sprite.h>
 #include <nds.h>
 
 cSprite::cSprite(u8 id) {

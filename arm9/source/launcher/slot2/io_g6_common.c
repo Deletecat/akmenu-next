@@ -80,7 +80,7 @@ The spare 64byte in page are use :
 	Improved writing speed
 */
 
-#include "io_g6_common.h"
+#include <launcher/slot2/io_g6_common.h>
 
 static u16 _G6_readHalfword (u32 addr) {
 	return *((vu16*)addr);

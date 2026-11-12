@@ -7,12 +7,12 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "globalsettings.h"
+#include <globalsettings.h>
 #include <string.h>
 #include <sys/stat.h>
-#include "font/fontfactory.h"
-#include "inifile.h"
-#include "systemfilenames.h"
+#include <font/fontfactory.h>
+#include <inifile.h>
+#include <systemfilenames.h>
 
 cGlobalSettings::cGlobalSettings() {
     fontHeight = 12;

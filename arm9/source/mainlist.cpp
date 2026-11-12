@@ -9,31 +9,31 @@
 
 //�
 
-#include "mainlist.h"
+#include <mainlist.h>
 #include <fat.h>
 #include <sys/dir.h>
 #include <sys/stat.h>
 #include <time.h>
 #include <memtool.h>
-#include "dbgtool.h"
+#include <dbgtool.h>
 #include "favourites_banner_bin.h"
 #include "folder_banner_bin.h"
 #include "gba_banner_bin.h"
-#include "inifile.h"
-#include "iconassets.h"
-#include "language.h"
+#include <inifile.h>
+#include <iconassets.h>
+#include <language.h>
 #include "microsd_banner_bin.h"
 #include "nand_banner_bin.h"
 #include "nds_save_banner_bin.h"
-#include "ui/progresswnd.h"
+#include <ui/progresswnd.h>
 #include "recents_banner_bin.h"
-#include "startmenu.h"
-#include "systemfilenames.h"
-#include "timetool.h"
-#include "unicode.h"
+#include <startmenu.h>
+#include <systemfilenames.h>
+#include <timetool.h>
+#include <unicode.h>
 #include "unknown_banner_bin.h"
-#include "ui/windowmanager.h"
-#include "pluginmngr.h"
+#include <ui/windowmanager.h>
+#include <pluginmngr.h>
 
 using namespace akui;
 

@@ -6,16 +6,16 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "coverwnd.h"
+#include <coverwnd.h>
 
 #include <cstdio>
 #include <cstring>
 
-#include "gdi.h"
-#include "globalsettings.h"
-#include "irqs.h"
-#include "systemfilenames.h"
-#include "ui/uisettings.h"
+#include <gdi.h>
+#include <globalsettings.h>
+#include <irqs.h>
+#include <systemfilenames.h>
+#include <ui/uisettings.h>
 
 namespace {
 

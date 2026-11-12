@@ -5,7 +5,7 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "dspadpcm.h"
+#include <dspadpcm.h>
 
 void dspAdpcmDecode(const u8* frame, sDspAdpcmState& state, s16* out, u32 first, u32 count) {
     u32 pair = frame[0] >> 4;

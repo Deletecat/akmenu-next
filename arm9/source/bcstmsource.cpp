@@ -9,7 +9,7 @@
 // docs.mikage.app "BCSTM", GBATEK "3DS Files - Sound Wave Streams (CSTM
 // Format)", vgmstream src/meta/bcstm.c.
 
-#include "bcstmsource.h"
+#include <bcstmsource.h>
 
 #include <stdlib.h>
 #include <string.h>

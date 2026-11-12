@@ -6,16 +6,16 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "expwnd.h"
+#include <expwnd.h>
 #include <fat.h>
-#include "datetime.h"
-#include "exptools.h"
-#include "font/fontfactory.h"
-#include "language.h"
-#include "ui/msgbox.h"
-#include "ui/progresswnd.h"
-#include "ui/uisettings.h"
-#include "ui/windowmanager.h"
+#include <datetime.h>
+#include <exptools.h>
+#include <font/fontfactory.h>
+#include <language.h>
+#include <ui/msgbox.h>
+#include <ui/progresswnd.h>
+#include <ui/uisettings.h>
+#include <ui/windowmanager.h>
 
 using namespace akui;
 

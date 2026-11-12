@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "gba_nes_patch_bin.h"
-#include "gbapatcher.h"
+#include <gbapatcher.h>
 
 bool CGbaPatcher::PatchNes(void) {
     bool res = false;

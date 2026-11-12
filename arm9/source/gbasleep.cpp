@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "gba_sleep_patch_bin.h"
-#include "gbapatcher.h"
+#include <gbapatcher.h>
 
 const int ACTIVATION_SIZE = 36;
 const int FAKE_SIZE = 512 * 1024;  // search in first 512k

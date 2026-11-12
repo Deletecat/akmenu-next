@@ -7,9 +7,9 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "spinbox.h"
-#include "../font/fontfactory.h"
-#include "ui.h"
+#include <ui/spinbox.h>
+#include <font/fontfactory.h>
+#include <ui/ui.h>
 
 //#include "windowmanager.h"
 

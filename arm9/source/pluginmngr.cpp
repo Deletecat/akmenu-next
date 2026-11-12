@@ -1,13 +1,13 @@
-#include "pluginmngr.h"
+#include <pluginmngr.h>
 
 #include <sys/dir.h>
 #include <algorithm>
 #include <cctype>
 
-#include "dbgtool.h"
-#include "inifile.h"
-#include "systemfilenames.h"
-#include "globalsettings.h"
+#include <dbgtool.h>
+#include <inifile.h>
+#include <systemfilenames.h>
+#include <globalsettings.h>
 
 namespace {
 std::string fileExtensionFromPath(const std::string& path) {

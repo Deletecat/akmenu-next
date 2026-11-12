@@ -14,10 +14,10 @@
 
 #include <fat.h>
 
-#include "cheat.h"
-#include "dbgtool.h"
-#include "gamecode.h"
-#include "systemfilenames.h"
+#include <cheat.h>
+#include <dbgtool.h>
+#include <gamecode.h>
+#include <systemfilenames.h>
 
 #define CRCPOLY 0xedb88320
 static u32 crc32(const u8* p, size_t len) {

@@ -7,18 +7,18 @@
 */
 
 #include <sys/stat.h>
-#include "romlauncher.h"
-#include "cheat.h"
-#include "exptools.h"
-#include "flags.h"
-#include "language.h"
-#include "recent.h"
-#include "thememusic.h"
+#include <romlauncher.h>
+#include <cheat.h>
+#include <exptools.h>
+#include <flags.h>
+#include <language.h>
+#include <recent.h>
+#include <thememusic.h>
 
-#include "launcher/HomebrewLauncher.h"
-#include "launcher/ILauncher.h"
-#include "launcher/NdsBootstrapLauncher.h"
-#include "launcher/DSpicoLauncher.h"
+#include <launcher/HomebrewLauncher.h>
+#include <launcher/ILauncher.h>
+#include <launcher/NdsBootstrapLauncher.h>
+#include <launcher/DSpicoLauncher.h>
 
 static SAVE_TYPE PrefillGame(u32 aGameCode) {
     if (0x45444759 == aGameCode)  // YGDE: 2209 - Diary Girl (USA)

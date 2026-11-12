@@ -7,13 +7,13 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "diskicon.h"
+#include <diskicon.h>
 #include <memtool.h>
-#include "bmp15.h"
-#include "globalsettings.h"
-#include "inifile.h"
-#include "systemfilenames.h"
-#include "timetool.h"
+#include <bmp15.h>
+#include <globalsettings.h>
+#include <inifile.h>
+#include <systemfilenames.h>
+#include <timetool.h>
 
 using namespace akui;
 

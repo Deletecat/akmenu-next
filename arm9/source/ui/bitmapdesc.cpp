@@ -7,9 +7,9 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "bitmapdesc.h"
+#include <ui/bitmapdesc.h>
 #include <memtool.h>
-#include "dbgtool.h"
+#include <dbgtool.h>
 
 namespace akui {
 

@@ -7,14 +7,14 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "aboutwnd.h"
-#include "font/fontfactory.h"
+#include <aboutwnd.h>
+#include <font/fontfactory.h>
 #include <picoLoader7.h>
-#include "language.h"
-#include "ui/msgbox.h"
-#include "ui/uisettings.h"
-#include "version.h"
-#include "ui/windowmanager.h"
+#include <language.h>
+#include <ui/msgbox.h>
+#include <ui/uisettings.h>
+#include <version.h>
+#include <ui/windowmanager.h>
 
 #include <cstddef>
 #include <cstdio>

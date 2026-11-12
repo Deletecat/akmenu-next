@@ -7,8 +7,8 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "rectangle.h"
-#include "ui.h"
+#include <ui/rectangle.h>
+#include <ui/ui.h>
 
 namespace akui {
 

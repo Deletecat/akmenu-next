@@ -5,7 +5,7 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "theme.h"
+#include <theme.h>
 
 #include <algorithm>
 #include <dirent.h>
@@ -13,11 +13,11 @@
 #include <sys/stat.h>
 #include <vector>
 
-#include "bmp15.h"
-#include "dbgtool.h"
-#include "globalsettings.h"
-#include "inifile.h"
-#include "systemfilenames.h"
+#include <bmp15.h>
+#include <dbgtool.h>
+#include <globalsettings.h>
+#include <inifile.h>
+#include <systemfilenames.h>
 
 namespace {
 struct sThemeAsset {

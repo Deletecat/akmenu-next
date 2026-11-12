@@ -9,10 +9,10 @@
 
 //�
 
-#include "bmp15.h"
+#include <bmp15.h>
 #include <list>
 #include <string>
-#include "dbgtool.h"
+#include <dbgtool.h>
 
 cBMP15::cBMP15() : _width(0), _height(0), _pitch(0), _buffer(NULL) {}
 

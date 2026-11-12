@@ -7,8 +7,8 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "zoomingicon.h"
-#include "gdi.h"
+#include <zoomingicon.h>
+#include <gdi.h>
 
 cZoomingIcon::cZoomingIcon() {
     _x = 0;

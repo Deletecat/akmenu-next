@@ -7,7 +7,7 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "progressbar.h"
+#include <ui/progressbar.h>
 
 namespace akui {
 

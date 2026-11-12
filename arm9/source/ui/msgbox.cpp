@@ -7,10 +7,10 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "msgbox.h"
-#include "../font/fontfactory.h"
-#include "language.h"
-#include "ui.h"
+#include <ui/msgbox.h>
+#include <font/fontfactory.h>
+#include <language.h>
+#include <ui/ui.h>
 
 namespace akui {
 

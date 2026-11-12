@@ -7,11 +7,11 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "calendarwnd.h"
-#include "bmp15.h"
-#include "gdi.h"
-#include "globalsettings.h"
-#include "systemfilenames.h"
+#include <calendarwnd.h>
+#include <bmp15.h>
+#include <gdi.h>
+#include <globalsettings.h>
+#include <systemfilenames.h>
 
 using namespace akui;
 

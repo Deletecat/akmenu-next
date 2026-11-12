@@ -7,12 +7,12 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "inifile.h"
+#include <inifile.h>
 #include <fat.h>
 #include <cstdio>
 #include <cstdlib>
-#include "dbgtool.h"
-#include "stringtool.h"
+#include <dbgtool.h>
+#include <stringtool.h>
 
 static bool freadLine(FILE* f, std::string& str) {
     str.clear();

@@ -7,7 +7,7 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "timer.h"
+#include <timer.h>
 
 vu64 cTimer::_overFlow = 0;
 cTimer::cTimer() {

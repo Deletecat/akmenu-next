@@ -7,7 +7,7 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "progresswnd.h"
+#include <ui/progresswnd.h>
 
 namespace akui {
 

@@ -9,8 +9,8 @@
 
 //�
 
-#include "listview.h"
-#include "ui.h"
+#include <ui/listview.h>
+#include <ui/ui.h>
 //#include "gdi.h"
 //#include "dbgtool.h"
 

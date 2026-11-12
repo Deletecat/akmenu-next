@@ -13,13 +13,13 @@
 
 #include <fat.h>
 
-#include "cheat.h"
-#include "cheatwnd.h"
-#include "gamecode.h"
-#include "language.h"
-#include "ui/msgbox.h"
-#include "ui/uisettings.h"
-#include "ui/windowmanager.h"
+#include <cheat.h>
+#include <cheatwnd.h>
+#include <gamecode.h>
+#include <language.h>
+#include <ui/msgbox.h>
+#include <ui/uisettings.h>
+#include <ui/windowmanager.h>
 
 using namespace akui;
 

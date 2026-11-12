@@ -8,9 +8,9 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "uisettings.h"
-#include "inifile.h"
-#include "ui.h"
+#include <ui/uisettings.h>
+#include <inifile.h>
+#include <ui/ui.h>
 
 cUISettings::cUISettings() {
     showCalendar = true;

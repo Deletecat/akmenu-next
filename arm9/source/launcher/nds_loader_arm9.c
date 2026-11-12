@@ -36,7 +36,7 @@
 #include "exceptionstub_bin.h"
 #endif
 
-#include "nds_loader_arm9.h"
+#include <launcher/nds_loader_arm9.h>
 #define LCDC_BANK_C (u16*)0x06840000
 #define STORED_FILE_CLUSTER (*(((u32*)LCDC_BANK_C) + 1))
 #define INIT_DISC (*(((u32*)LCDC_BANK_C) + 2))

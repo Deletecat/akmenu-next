@@ -18,17 +18,17 @@
 #include <nds/ndstypes.h>
 
 #include <picoLoader7.h>
-#include "tonccpy.h"
-#include "../cheatwnd.h"
-#include "../dsrom.h"
-#include "../flags.h"
-#include "../mainlist.h"
-#include "../systemfilenames.h"
-#include "../language.h"
-#include "../ui/msgbox.h"
-#include "../ui/progresswnd.h"
-#include "ILauncher.h"
-#include "DSpicoLauncher.h"
+#include <tonccpy.h>
+#include <cheatwnd.h>
+#include <dsrom.h>
+#include <flags.h>
+#include <mainlist.h>
+#include <systemfilenames.h>
+#include <language.h>
+#include <ui/msgbox.h>
+#include <ui/progresswnd.h>
+#include <launcher/ILauncher.h>
+#include <launcher/DSpicoLauncher.h>
 
 constexpr std::align_val_t cache_align { 32 };
 

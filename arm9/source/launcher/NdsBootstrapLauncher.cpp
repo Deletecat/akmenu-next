@@ -16,22 +16,22 @@
 
 #include <nds/ndstypes.h>
 
-#include "cheat.h"
-#include "../dsrom.h"
-#include "../flags.h"
-#include "../inifile.h"
-#include "../mainlist.h"
-#include "../systemfilenames.h"
-#include "../language.h"
-#include "../ui/msgbox.h"
-#include "../ui/progresswnd.h"
-#include "ILauncher.h"
-#include "NdsBootstrapLauncher.h"
-#include "nds_loader_arm9.h"
+#include <cheat.h>
+#include <dsrom.h>
+#include <flags.h>
+#include <inifile.h>
+#include <mainlist.h>
+#include <systemfilenames.h>
+#include <language.h>
+#include <ui/msgbox.h>
+#include <ui/progresswnd.h>
+#include <launcher/ILauncher.h>
+#include <launcher/NdsBootstrapLauncher.h>
+#include <launcher/nds_loader_arm9.h>
 
-#include "slot2/io_g6_common.h"
-#include "slot2/io_m3_common.h"
-#include "slot2/io_sc_common.h"
+#include <launcher/slot2/io_g6_common.h>
+#include <launcher/slot2/io_m3_common.h>
+#include <launcher/slot2/io_sc_common.h>
 
 void smoothProgress(u8 start, u8 end) {
     for(u8 p = start; p <= end; p += 5) {

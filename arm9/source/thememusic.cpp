@@ -5,7 +5,7 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "thememusic.h"
+#include <thememusic.h>
 
 #include <maxmod9.h>
 #include <stdlib.h>
@@ -13,14 +13,14 @@
 #include <string>
 #include <time.h>
 
-#include "bcstmsource.h"
-#include "dbgtool.h"
-#include "globalsettings.h"
-#include "irqs.h"
-#include "systemfilenames.h"
-#include "timer.h"
+#include <bcstmsource.h>
+#include <dbgtool.h>
+#include <globalsettings.h>
+#include <irqs.h>
+#include <systemfilenames.h>
+#include <timer.h>
 #include <fifotool.h>
-#include "wavsource.h"
+#include <wavsource.h>
 
 namespace {
 const u32 kRingBytes = 512 * 1024;

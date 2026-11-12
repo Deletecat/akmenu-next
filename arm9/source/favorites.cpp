@@ -6,9 +6,9 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "favorites.h"
-#include "inifile.h"
-#include "systemfilenames.h"
+#include <favorites.h>
+#include <inifile.h>
+#include <systemfilenames.h>
 
 bool cFavorites::AddToFavorites(const std::string& aFileName) {
     CIniFile ini(SFN_FAVORITES);

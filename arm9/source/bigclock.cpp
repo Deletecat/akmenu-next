@@ -7,12 +7,12 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "bigclock.h"
-#include "globalsettings.h"
-#include "inifile.h"
-#include "stringtool.h"
-#include "systemfilenames.h"
-#include "ui/windowmanager.h"
+#include <bigclock.h>
+#include <globalsettings.h>
+#include <inifile.h>
+#include <stringtool.h>
+#include <systemfilenames.h>
+#include <ui/windowmanager.h>
 
 using namespace akui;
 

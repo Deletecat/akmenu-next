@@ -5,7 +5,7 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "icons.h"
+#include <icons.h>
 
 void cIcons::maskBlt(const u16* aSrc, u16* aDst) {
     for (u32 ii = 0; ii < 32; ++ii) {

@@ -17,38 +17,38 @@
 #include <fat.h>
 
 #include <sys/stat.h>
-#include "dbgtool.h"
+#include <dbgtool.h>
 
-#include "gdi.h"
-#include "ui/ui.h"
+#include <gdi.h>
+#include <ui/ui.h>
 
-#include "mainlist.h"
-#include "mainwnd.h"
-#include "startmenu.h"
-#include "systemfilenames.h"
-#include "timer.h"
+#include <mainlist.h>
+#include <mainwnd.h>
+#include <startmenu.h>
+#include <systemfilenames.h>
+#include <timer.h>
 
-#include "bigclock.h"
-#include "calendar.h"
-#include "calendarwnd.h"
-#include "coverwnd.h"
-#include "datetime.h"
+#include <bigclock.h>
+#include <calendar.h>
+#include <calendarwnd.h>
+#include <coverwnd.h>
+#include <datetime.h>
 
-#include "inifile.h"
-#include "irqs.h"
+#include <inifile.h>
+#include <irqs.h>
 
-#include "diskicon.h"
-#include "font/fontfactory.h"
-#include "language.h"
-#include "ui/progresswnd.h"
+#include <diskicon.h>
+#include <font/fontfactory.h>
+#include <language.h>
+#include <ui/progresswnd.h>
 
-#include "exptools.h"
-#include "romlauncher.h"
-#include "sram.h"
-#include "theme.h"
-#include "userwnd.h"
-#include "pluginmngr.h"
-#include "thememusic.h"
+#include <exptools.h>
+#include <romlauncher.h>
+#include <sram.h>
+#include <theme.h>
+#include <userwnd.h>
+#include <pluginmngr.h>
+#include <thememusic.h>
 
 using namespace akui;
 

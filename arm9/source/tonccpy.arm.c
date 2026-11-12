@@ -1,6 +1,6 @@
 // clang-format off
 
-#include "tonccpy.h"
+#include <tonccpy.h>
 #include <stddef.h>
 
 //# tonccpy.c

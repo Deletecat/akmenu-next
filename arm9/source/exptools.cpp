@@ -6,7 +6,7 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "exptools.h"
+#include <exptools.h>
 
 #define _PSRAM 0x08060000  // an offset into PSRAM to write to so stuff doesn't get lost...
 

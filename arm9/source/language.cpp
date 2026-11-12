@@ -7,7 +7,7 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "language.h"
+#include <language.h>
 
 bool stringComp(const std::string& item1, const std::string& item2) {
     return strcasecmp(item1.c_str(), item2.c_str()) < 0;

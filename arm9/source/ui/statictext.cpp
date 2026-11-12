@@ -7,8 +7,8 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "statictext.h"
-#include "ui.h"
+#include <ui/statictext.h>
+#include <ui/ui.h>
 //#include "gdi.h"
 
 namespace akui {

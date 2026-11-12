@@ -9,8 +9,8 @@
 
 //�
 
-#include "popmenu.h"
-#include "ui.h"
+#include <ui/popmenu.h>
+#include <ui/ui.h>
 //#include "windowmanager.h"
 
 namespace akui {

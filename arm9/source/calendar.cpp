@@ -7,13 +7,13 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "calendar.h"
+#include <calendar.h>
 #include <memtool.h>
-#include "globalsettings.h"
-#include "inifile.h"
-#include "stringtool.h"
-#include "systemfilenames.h"
-#include "ui/windowmanager.h"
+#include <globalsettings.h>
+#include <inifile.h>
+#include <stringtool.h>
+#include <systemfilenames.h>
+#include <ui/windowmanager.h>
 
 using namespace akui;
 

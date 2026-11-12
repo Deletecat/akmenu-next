@@ -7,15 +7,15 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "dsrom.h"
-#include "dbgtool.h"
-#include "fileicons.h"
-#include "gamecode.h"
+#include <dsrom.h>
+#include <dbgtool.h>
+#include <fileicons.h>
+#include <gamecode.h>
 #include "gbarom_banner_bin.h"
-#include "globalsettings.h"
-#include "iconassets.h"
+#include <globalsettings.h>
+#include <iconassets.h>
 #include "icon_bg_bin.h"
-#include "icons.h"
+#include <icons.h>
 #include "nds_banner_bin.h"
 #include "unknown_nds_banner_bin.h"
 

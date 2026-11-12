@@ -7,11 +7,11 @@
 
 #include <string.h>
 
-#include "language.h"
-#include "systemfilenames.h"
-#include "theme.h"
-#include "themewnd.h"
-#include "ui/uisettings.h"
+#include <language.h>
+#include <systemfilenames.h>
+#include <theme.h>
+#include <themewnd.h>
+#include <ui/uisettings.h>
 
 using namespace akui;
 

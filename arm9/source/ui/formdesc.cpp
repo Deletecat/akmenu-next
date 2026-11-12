@@ -7,8 +7,8 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "formdesc.h"
-#include "ui.h"
+#include <ui/formdesc.h>
+#include <ui/ui.h>
 
 //#include "globalsettings.h"
 

@@ -7,9 +7,9 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "window.h"
-#include "ui.h"
-#include "windowmanager.h"
+#include <ui/window.h>
+#include <ui/ui.h>
+#include <ui/windowmanager.h>
 
 namespace akui {
 

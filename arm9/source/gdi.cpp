@@ -7,15 +7,15 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "gdi.h"
+#include <gdi.h>
 #include <cstdio>
 #include <cstring>
 #include <memtool.h>
-#include "dbgtool.h"
-#include "font/fontfactory.h"
-#include "globalsettings.h"
-#include "sprite.h"
-#include "userinput.h"
+#include <dbgtool.h>
+#include <font/fontfactory.h>
+#include <globalsettings.h>
+#include <sprite.h>
+#include <userinput.h>
 
 static inline void dmaCopyWordsGdi(uint8 channel, const void* src, void* dest, uint32 size) {
     DC_FlushRange(src, size);

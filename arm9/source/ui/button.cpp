@@ -7,10 +7,10 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "button.h"
-#include "../font/fontfactory.h"
-#include "ui.h"
-#include "window.h"
+#include <ui/button.h>
+#include <font/fontfactory.h>
+#include <ui/ui.h>
+#include <ui/window.h>
 
 namespace akui {
 

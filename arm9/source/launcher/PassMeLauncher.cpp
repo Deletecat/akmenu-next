@@ -8,9 +8,9 @@
 #include <string>
 #include <vector>
 
-#include "ILauncher.h"
-#include "PassMeLauncher.h"
-#include "nds_loader_arm9.h"
+#include <launcher/ILauncher.h>
+#include <launcher/PassMeLauncher.h>
+#include <launcher/nds_loader_arm9.h>
 
 bool PassMeLauncher::launchRom(std::string romPath, std::string savePath, u32 flags,
                                u32 cheatOffset, u32 cheatSize, bool hb) {

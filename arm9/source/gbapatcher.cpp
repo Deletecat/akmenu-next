@@ -6,12 +6,12 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "gbapatcher.h"
+#include <gbapatcher.h>
 #include <stdarg.h>
 #ifdef __TEST
 #include <stdio.h>
 #else
-#include "globalsettings.h"
+#include <globalsettings.h>
 #endif
 
 #define sizeofa(array) (sizeof(array) / sizeof(array[0]))

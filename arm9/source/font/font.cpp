@@ -7,11 +7,11 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "font.h"
+#include <font/font.h>
 #include <nds.h>
 #include <string.h>
-#include "dbgtool.h"
-#include "systemfilenames.h"
+#include <dbgtool.h>
+#include <systemfilenames.h>
 
 cFont::cFont() {}
 

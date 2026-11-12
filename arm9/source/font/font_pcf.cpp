@@ -6,11 +6,11 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "font_pcf.h"
+#include <font/font_pcf.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include "font_pcf_internals.h"
-#include "language.h"
+#include <font/font_pcf_internals.h>
+#include <language.h>
 
 cFontPcf::cFontPcf()
     : cFont(),

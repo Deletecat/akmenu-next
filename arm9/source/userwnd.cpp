@@ -7,17 +7,17 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "userwnd.h"
+#include <userwnd.h>
 #include <sys/stat.h>
 #include <cstdio>
 #include <cstring>
 #include <memtool.h>
-#include "globalsettings.h"
-#include "inifile.h"
-#include "stringtool.h"
-#include "systemfilenames.h"
-#include "unicode.h"
-#include "ui/windowmanager.h"
+#include <globalsettings.h>
+#include <inifile.h>
+#include <stringtool.h>
+#include <systemfilenames.h>
+#include <unicode.h>
+#include <ui/windowmanager.h>
 
 using namespace akui;
 

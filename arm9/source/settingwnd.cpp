@@ -7,15 +7,15 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "settingwnd.h"
-#include "globalsettings.h"
-#include "language.h"
-#include "ui/msgbox.h"
-#include "systemfilenames.h"
-#include "gdi.h"
-#include "font/fontfactory.h"
-#include "ui/uisettings.h"
-#include "ui/windowmanager.h"
+#include <settingwnd.h>
+#include <globalsettings.h>
+#include <language.h>
+#include <ui/msgbox.h>
+#include <systemfilenames.h>
+#include <gdi.h>
+#include <font/fontfactory.h>
+#include <ui/uisettings.h>
+#include <ui/windowmanager.h>
 #define TOP_MARGIN 4
 
 using namespace akui;

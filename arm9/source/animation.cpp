@@ -7,7 +7,7 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "animation.h"
+#include <animation.h>
 
 cAnimation::cAnimation() {
     _visible = false;

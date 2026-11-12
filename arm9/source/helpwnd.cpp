@@ -7,13 +7,13 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "helpwnd.h"
+#include <helpwnd.h>
 
-#include "font/fontfactory.h"
-#include "language.h"
-#include "ui/msgbox.h"
-#include "ui/uisettings.h"
-#include "ui/windowmanager.h"
+#include <font/fontfactory.h>
+#include <language.h>
+#include <ui/msgbox.h>
+#include <ui/uisettings.h>
+#include <ui/windowmanager.h>
 
 using namespace akui;
 

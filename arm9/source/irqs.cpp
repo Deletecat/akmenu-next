@@ -7,20 +7,20 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "irqs.h"
-#include "animation.h"
-#include "bigclock.h"
-#include "calendar.h"
-#include "calendarwnd.h"
-#include "coverwnd.h"
-#include "dbgtool.h"
-#include "diskicon.h"
-#include "globalsettings.h"
-#include "timer.h"
-#include "userinput.h"
-#include "userwnd.h"
-#include "ui/uisettings.h"
-#include "ui/windowmanager.h"
+#include <irqs.h>
+#include <animation.h>
+#include <bigclock.h>
+#include <calendar.h>
+#include <calendarwnd.h>
+#include <coverwnd.h>
+#include <dbgtool.h>
+#include <diskicon.h>
+#include <globalsettings.h>
+#include <timer.h>
+#include <userinput.h>
+#include <userwnd.h>
+#include <ui/uisettings.h>
+#include <ui/windowmanager.h>
 
 using namespace akui;
 

@@ -8,10 +8,10 @@
 #include <string>
 #include <vector>
 
-#include "flags.h"
-#include "HomebrewLauncher.h"
-#include "ILauncher.h"
-#include "nds_loader_arm9.h"
+#include <flags.h>
+#include <launcher/HomebrewLauncher.h>
+#include <launcher/ILauncher.h>
+#include <launcher/nds_loader_arm9.h>
 
 bool HomebrewLauncher::launchRom(std::string romPath, std::string savePath, u32 flags,
                                  u32 cheatOffset, u32 cheatSize, bool hb) {
