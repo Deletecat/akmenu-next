@@ -245,43 +245,39 @@ std::string CIniFile::GetFileString(const std::string& Section, const std::strin
 
     m_bLastResult = false;
 
-    if (iFileLines >= 0) {
-        while (ii < iFileLines) {
-            strline = m_FileContainer[ii++];
-
-            size_t rBracketPos = 0;
-            if ('[' == strline[0]) rBracketPos = strline.find(']');
-            if (rBracketPos > 0 && rBracketPos != std::string::npos) {
-                strSection = strline.substr(1, rBracketPos - 1);
-                if (m_bReadOnly) m_Cache.insert(std::make_pair(strSection, ii - 1));
-                if (strSection == Section) {
-                    while (ii < iFileLines) {
-                        strline = m_FileContainer[ii++];
-                        size_t equalsignPos = strline.find('=');
-                        if (equalsignPos != strline.npos) {
-                            size_t last =
-                                    equalsignPos ? strline.find_last_not_of(" \t", equalsignPos - 1)
-                                                 : strline.npos;
-                            if (last == strline.npos)
-                                strItem = "";
+    while (ii < iFileLines) {
+        strline = m_FileContainer[ii++];
+        size_t rBracketPos = 0;
+        if ('[' == strline[0]) rBracketPos = strline.find(']');
+        if (rBracketPos > 0 && rBracketPos != std::string::npos) {
+            strSection = strline.substr(1, rBracketPos - 1);
+            if (m_bReadOnly) m_Cache.insert(std::make_pair(strSection, ii - 1));
+            if (strSection == Section) {
+                while (ii < iFileLines) {
+                    strline = m_FileContainer[ii++];
+                    size_t equalsignPos = strline.find('=');
+                    if (equalsignPos != strline.npos) {
+                        size_t last =
+                                equalsignPos ? strline.find_last_not_of(" \t", equalsignPos - 1)
+                                             : strline.npos;
+                        if (last == strline.npos)
+                            strItem = "";
+                        else
+                            strItem = strline.substr(0, last + 1);
+                     if (strItem == Item) {
+                            size_t first = strline.find_first_not_of(" \t", equalsignPos + 1);
+                            if (first == strline.npos)
+                                strValue = "";
                             else
-                                strItem = strline.substr(0, last + 1);
-
-                            if (strItem == Item) {
-                                size_t first = strline.find_first_not_of(" \t", equalsignPos + 1);
-                                if (first == strline.npos)
-                                    strValue = "";
-                                else
-                                    strValue = strline.substr(first);
-                                m_bLastResult = true;
-                                return strValue;
-                            }
-                        } else if ('[' == strline[0]) {
-                            break;
+                                strValue = strline.substr(first);
+                            m_bLastResult = true;
+                            return strValue;
                         }
+                    } else if ('[' == strline[0]) {
+                        break;
                     }
-                    break;
                 }
+                break;
             }
         }
     }
