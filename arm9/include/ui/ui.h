@@ -11,40 +11,40 @@
 
 #include <nds.h>
 #include <memtool.h>
-#include "dbgtool.h"
-#include "gdi.h"
-#include "stringtool.h"
-#include "timetool.h"
+#include <dbgtool.h>
+#include <gdi.h>
+#include <stringtool.h>
+#include <timetool.h>
 
-#include "sigslot.h"
+#include <ui/sigslot.h>
 
-#include "point.h"
-#include "rectangle.h"
+#include <ui/point.h>
+#include <ui/rectangle.h>
 
-#include "window.h"
-#include "windowmanager.h"
+#include <ui/window.h>
+#include <ui/windowmanager.h>
 
-#include "keymessage.h"
-#include "message.h"
-#include "touchmessage.h"
+#include <ui/keymessage.h>
+#include <ui/message.h>
+#include <ui/touchmessage.h>
 
-#include "bitmapdesc.h"
-#include "renderdesc.h"
+#include <ui/bitmapdesc.h>
+#include <ui/renderdesc.h>
 
-#include "button.h"
-#include "listview.h"
-#include "statictext.h"
+#include <ui/button.h>
+#include <ui/listview.h>
+#include <ui/statictext.h>
 
-#include "form.h"
-#include "formdesc.h"
-#include "spinbox.h"
+#include <ui/form.h>
+#include <ui/formdesc.h>
+#include <ui/spinbox.h>
 
 //#include "progressbar.h"
 //#include "progresswnd.h"
 
-#include "msgbox.h"
-#include "popmenu.h"
+#include <ui/msgbox.h>
+#include <ui/popmenu.h>
 
-#include "globalsettings.h"
-#include "systemfilenames.h"
-#include "uisettings.h"
+#include <globalsettings.h>
+#include <systemfilenames.h>
+#include <ui/uisettings.h>

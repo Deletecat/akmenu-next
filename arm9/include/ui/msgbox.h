@@ -9,10 +9,10 @@
 
 #pragma once
 
-#include "button.h"
-#include "form.h"
-#include "formdesc.h"
-#include "window.h"
+#include <ui/button.h>
+#include <ui/form.h>
+#include <ui/formdesc.h>
+#include <ui/window.h>
 
 namespace akui {
 

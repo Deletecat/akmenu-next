@@ -10,12 +10,12 @@
 #pragma once
 
 #include <nds.h>
-#include "dsrom.h"
-#include "ui/keymessage.h"
-#include "ui/listview.h"
-#include "ui/sigslot.h"
-#include "ui/touchmessage.h"
-#include "zoomingicon.h"
+#include <dsrom.h>
+#include <ui/keymessage.h>
+#include <ui/listview.h>
+#include <ui/sigslot.h>
+#include <ui/touchmessage.h>
+#include <zoomingicon.h>
 
 
 // 显示游戏列表，文件列表等等

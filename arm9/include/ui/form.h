@@ -10,9 +10,9 @@
 #pragma once
 
 #include <list>
-#include "bitmapdesc.h"
-#include "rectangle.h"
-#include "window.h"
+#include <ui/bitmapdesc.h>
+#include <ui/rectangle.h>
+#include <ui/window.h>
 
 namespace akui {
 

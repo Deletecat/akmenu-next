@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "message.h"
+#include <ui/message.h>
 
 namespace akui {
 

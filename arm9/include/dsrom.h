@@ -11,8 +11,8 @@
 
 #include <nds.h>
 #include <string.h>
-#include "gdi.h"
-#include "savemngr.h"
+#include <gdi.h>
+#include <savemngr.h>
 
 class DSRomInfo {
   private:

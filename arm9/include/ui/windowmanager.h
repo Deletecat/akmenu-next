@@ -11,8 +11,8 @@
 
 #include <list>
 #include <string>
-#include "userinput.h"
-#include "window.h"
+#include <userinput.h>
+#include <ui/window.h>
 
 namespace akui {
 class cWindowManager {

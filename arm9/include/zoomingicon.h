@@ -10,8 +10,8 @@
 #pragma once
 
 #include <nds.h>
-#include "animation.h"
-#include "sprite.h"
+#include <animation.h>
+#include <sprite.h>
 
 class cZoomingIcon : public cAnimation {
   public:

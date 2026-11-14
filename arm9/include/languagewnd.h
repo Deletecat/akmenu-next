@@ -12,10 +12,10 @@
 
 #include <nds/ndstypes.h>
 
-#include "ui/button.h"
-#include "ui/form.h"
-#include "ui/formdesc.h"
-#include "ui/listview.h"
+#include <ui/button.h>
+#include <ui/form.h>
+#include <ui/formdesc.h>
+#include <ui/listview.h>
 
 std::vector<std::string> installedLanguages();
 

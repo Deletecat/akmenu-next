@@ -10,9 +10,9 @@
 #pragma once
 
 #include <nds.h>
-#include "singleton.h"
-#include "sprite.h"
-#include "ui/window.h"
+#include <singleton.h>
+#include <sprite.h>
+#include <ui/window.h>
 
 class cDiskIcon : public akui::cWindow {
   public:

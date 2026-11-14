@@ -10,14 +10,14 @@
 #pragma once
 
 #include <string>
-#include "dbgtool.h"
-#include "gdi.h"
-#include "keymessage.h"
-#include "point.h"
-#include "rectangle.h"
-#include "sigslot.h"
-#include "touchmessage.h"
-#include "userinput.h"
+#include <dbgtool.h>
+#include <gdi.h>
+#include <ui/keymessage.h>
+#include <ui/point.h>
+#include <ui/rectangle.h>
+#include <ui/sigslot.h>
+#include <ui/touchmessage.h>
+#include <userinput.h>
 
 namespace akui {
 

@@ -10,8 +10,8 @@
 #pragma once
 
 #include <string>
-#include "gdi.h"
-#include "singleton.h"
+#include <gdi.h>
+#include <singleton.h>
 
 class cFont {
   public:

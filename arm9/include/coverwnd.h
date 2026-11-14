@@ -12,8 +12,8 @@
 #include <string>
 #include <vector>
 
-#include "dsrom.h"
-#include "singleton.h"
+#include <dsrom.h>
+#include <singleton.h>
 
 class cCoverWnd {
   public:

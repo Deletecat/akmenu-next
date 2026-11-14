@@ -2,7 +2,7 @@
 
 #include <string>
 #include <vector>
-#include "singleton.h"
+#include <singleton.h>
 
 class cPluginManager {
   public:

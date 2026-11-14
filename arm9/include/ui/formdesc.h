@@ -10,8 +10,8 @@
 #pragma once
 
 #include <string>
-#include "bmp15.h"
-#include "renderdesc.h"
+#include <bmp15.h>
+#include <ui/renderdesc.h>
 
 namespace akui {
 

@@ -10,12 +10,12 @@
 #pragma once
 
 #include <string>
-#include "dsrom.h"
-#include "ui/form.h"
-#include "ui/formdesc.h"
-#include "ui/message.h"
-#include "ui/spinbox.h"
-#include "ui/statictext.h"
+#include <dsrom.h>
+#include <ui/form.h>
+#include <ui/formdesc.h>
+#include <ui/message.h>
+#include <ui/spinbox.h>
+#include <ui/statictext.h>
 
 class cAboutWnd : public akui::cForm {
   public:

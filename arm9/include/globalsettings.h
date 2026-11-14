@@ -13,7 +13,7 @@
 #include <string>
 #include <fifotool.h>
 #include <fat.h>
-#include "singleton.h"
+#include <singleton.h>
 
 class cGlobalSettings {
   public:

@@ -11,9 +11,9 @@
 
 #include <string>
 #include <vector>
-#include "button.h"
-#include "form.h"
-#include "statictext.h"
+#include <ui/button.h>
+#include <ui/form.h>
+#include <ui/statictext.h>
 
 namespace akui {
 

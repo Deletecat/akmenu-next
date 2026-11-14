@@ -9,9 +9,9 @@
 
 #include <set>
 #include <vector>
-#include "bmp15.h"
-#include "gdi.h"
-#include "singleton.h"
+#include <bmp15.h>
+#include <gdi.h>
+#include <singleton.h>
 
 class cFileIconItem {
   public:

@@ -12,11 +12,11 @@
 
 #include <nds/ndstypes.h>
 
-#include "ui/button.h"
-#include "ui/form.h"
-#include "ui/formdesc.h"
-#include "ui/listview.h"
-#include "ui/statictext.h"
+#include <ui/button.h>
+#include <ui/form.h>
+#include <ui/formdesc.h>
+#include <ui/listview.h>
+#include <ui/statictext.h>
 
 class cThemeWnd : public akui::cForm {
   public:

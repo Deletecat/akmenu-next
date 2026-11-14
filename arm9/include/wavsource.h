@@ -10,7 +10,7 @@
 #include <nds/ndstypes.h>
 #include <stdio.h>
 
-#include "musicsource.h"
+#include <musicsource.h>
 
 // Plays a 16-bit PCM RIFF/WAVE file (mono or stereo), repeating the whole file.
 class cWavSource : public cMusicSource {

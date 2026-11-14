@@ -9,13 +9,13 @@
 
 #pragma once
 
-#include "dbgtool.h"
-#include "globalsettings.h"
-#include "inifile.h"
-#include "singleton.h"
-#include "stringtool.h"
-#include "systemfilenames.h"
-#include "timetool.h"
+#include <dbgtool.h>
+#include <globalsettings.h>
+#include <inifile.h>
+#include <singleton.h>
+#include <stringtool.h>
+#include <systemfilenames.h>
+#include <timetool.h>
 
 class cLanguageFile : public CIniFile {
   public:

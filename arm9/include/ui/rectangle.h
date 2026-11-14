@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "point.h"
+#include <ui/point.h>
 
 namespace akui {
 

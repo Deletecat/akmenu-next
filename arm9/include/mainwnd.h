@@ -9,14 +9,14 @@
 
 #pragma once
 
-#include "ui/button.h"
-#include "ui/form.h"
-#include "ui/keymessage.h"
-#include "mainlist.h"
-#include "settingwnd.h"
-#include "ui/spinbox.h"
-#include "startmenu.h"
-#include "ui/touchmessage.h"
+#include <ui/button.h>
+#include <ui/form.h>
+#include <ui/keymessage.h>
+#include <mainlist.h>
+#include <settingwnd.h>
+#include <ui/spinbox.h>
+#include <startmenu.h>
+#include <ui/touchmessage.h>
 
 class cMainWnd : public akui::cForm {
   public:

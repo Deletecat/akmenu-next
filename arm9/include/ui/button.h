@@ -9,10 +9,10 @@
 
 #pragma once
 
-#include "bmp15.h"
-#include "rectangle.h"
-#include "renderdesc.h"
-#include "window.h"
+#include <bmp15.h>
+#include <ui/rectangle.h>
+#include <ui/renderdesc.h>
+#include <ui/window.h>
 
 namespace akui {
 

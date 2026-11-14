@@ -10,13 +10,13 @@
 #pragma once
 
 #include <string>
-#include "dsrom.h"
-#include "ui/form.h"
-#include "ui/formdesc.h"
-#include "ui/message.h"
-#include "settingwnd.h"
-#include "ui/spinbox.h"
-#include "ui/statictext.h"
+#include <dsrom.h>
+#include <ui/form.h>
+#include <ui/formdesc.h>
+#include <ui/message.h>
+#include <settingwnd.h>
+#include <ui/spinbox.h>
+#include <ui/statictext.h>
 
 class cRomInfoWnd : public akui::cForm {
   public:

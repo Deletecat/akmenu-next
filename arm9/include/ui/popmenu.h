@@ -11,10 +11,10 @@
 
 #include <nds.h>
 #include <vector>
-#include "form.h"
-#include "point.h"
-#include "sigslot.h"
-#include "window.h"
+#include <ui/form.h>
+#include <ui/point.h>
+#include <ui/sigslot.h>
+#include <ui/window.h>
 
 namespace akui {
 

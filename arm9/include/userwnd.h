@@ -9,11 +9,11 @@
 
 #pragma once
 
-#include "bmp15.h"
-#include "datetime.h"
-#include "ui/point.h"
-#include "singleton.h"
-#include "ui/window.h"
+#include <bmp15.h>
+#include <datetime.h>
+#include <ui/point.h>
+#include <singleton.h>
+#include <ui/window.h>
 
 class cUserWindow : public akui::cWindow {
   public:

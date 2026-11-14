@@ -8,7 +8,7 @@
 
 #include <string>
 
-#include "ILauncher.h"
+#include <launcher/ILauncher.h>
 
 class HomebrewLauncher : public ILauncher {
   public:

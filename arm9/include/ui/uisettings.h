@@ -10,8 +10,8 @@
 #pragma once
 
 #include <nds.h>
-#include "gdi.h"
-#include "../singleton.h"
+#include <gdi.h>
+#include <singleton.h>
 
 class cUISettings {
   public:

@@ -9,9 +9,9 @@
 
 #pragma once
 
-#include "progressbar.h"
-#include "../singleton.h"
-#include "ui.h"
+#include <ui/progressbar.h>
+#include <singleton.h>
+#include <ui/ui.h>
 
 namespace akui {
 

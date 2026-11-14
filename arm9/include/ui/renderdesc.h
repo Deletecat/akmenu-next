@@ -9,8 +9,8 @@
 
 #pragma once
 
-#include "gdi.h"
-#include "rectangle.h"
+#include <gdi.h>
+#include <ui/rectangle.h>
 
 namespace akui {
 

@@ -9,8 +9,8 @@
 
 #pragma once
 
-#include "bmp15.h"
-#include "window.h"
+#include <bmp15.h>
+#include <ui/window.h>
 
 namespace akui {
 

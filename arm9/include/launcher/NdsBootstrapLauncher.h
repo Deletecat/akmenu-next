@@ -8,8 +8,8 @@
 
 #include <nds/ndstypes.h>
 
-#include "../dsrom.h"
-#include "ILauncher.h"
+#include <dsrom.h>
+#include <launcher/ILauncher.h>
 
 class NdsBootstrapLauncher : public ILauncher {
   public:

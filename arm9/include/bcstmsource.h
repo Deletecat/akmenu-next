@@ -10,8 +10,8 @@
 #include <nds/ndstypes.h>
 #include <stdio.h>
 
-#include "dspadpcm.h"
-#include "musicsource.h"
+#include <dspadpcm.h>
+#include <musicsource.h>
 
 // Plays a DSP-ADPCM BCSTM (3DS stream) with its loop points.
 class cBcstmSource : public cMusicSource {

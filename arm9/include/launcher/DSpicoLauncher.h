@@ -9,8 +9,8 @@
 #include <nds/ndstypes.h>
 
 #include <picoLoader7.h>
-#include "../dsrom.h"
-#include "ILauncher.h"
+#include <dsrom.h>
+#include <launcher/ILauncher.h>
 
 class DSpicoLauncher : public ILauncher {
   public:

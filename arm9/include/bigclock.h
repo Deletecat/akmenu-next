@@ -9,10 +9,10 @@
 
 #pragma once
 
-#include "bmp15.h"
-#include "datetime.h"
-#include "singleton.h"
-#include "ui/window.h"
+#include <bmp15.h>
+#include <datetime.h>
+#include <singleton.h>
+#include <ui/window.h>
 
 // class cClockNumber : public
 class cBigClock : public akui::cWindow {
