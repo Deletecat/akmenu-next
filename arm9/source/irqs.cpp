@@ -64,7 +64,9 @@ void cIRQ::vBlank() {
 
     static u32 vBlankCounter = 0;
 
-    if (vBlankCounter++ > 30) {
+    if (vBlankCounter++ == 30){
+        datetime()._updateTime = true;
+    } else if (vBlankCounter > 30) {
         vBlankCounter = 0;
         bigClock().blinkColon();
         redrawTopScreen();

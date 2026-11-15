@@ -29,37 +29,30 @@ void cDateTime::updateTime(void) {
 }
 
 u16 cDateTime::year() {
-    _updateTime = true;
     return iTimeParts.tm_year + 1900;
 }
 
 u8 cDateTime::month() {
-    _updateTime = true;
     return iTimeParts.tm_mon + 1;
 }
 
 u8 cDateTime::day() {
-    _updateTime = true;
     return iTimeParts.tm_mday;
 }
 
 u8 cDateTime::weekday() {
-    _updateTime = true;
     return iTimeParts.tm_wday;
 }
 
 u8 cDateTime::hours() {
-    _updateTime = true;
     return iTimeParts.tm_hour;
 }
 
 u8 cDateTime::minutes() {
-    _updateTime = true;
     return iTimeParts.tm_min;
 }
 
 u8 cDateTime::seconds() {
-    _updateTime = true;
     return iTimeParts.tm_sec;
 }
 

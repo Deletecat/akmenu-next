@@ -17,7 +17,6 @@
 class cDateTime {
   private:
     tm iTimeParts;
-    bool _updateTime;
 
   private:
     void FillTimeParts(void);
@@ -28,6 +27,7 @@ class cDateTime {
 
   public:
     static const char* weekdayStrings[];
+    bool _updateTime;
     u16 year(void);
     u8 month(void);
     u8 day(void);
